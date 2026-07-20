@@ -12,7 +12,10 @@ window.addEventListener("keydown", function(event) {
 
 window.onload = function() {
     document.getElementById("checkJavaScript").remove();
+    getTime();
 }
+
+window.setInterval(getTime(), 1000);
 
 function getTime() {
     const d = new Date();
