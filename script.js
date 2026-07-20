@@ -17,5 +17,14 @@ window.onload = function() {
 function getTime() {
     const d = new Date();
     let year = d.getFullYear();
+    let time24 = d.getHours() + ":" + d.getMinutes();
+    if(d.getHours() > 12) {
+        let time12 = d.getHours();
+        time12 = time12 - 12;
+        time12 = time12 + ":" + d.getMinutes();
+    } else {
+        let time12 = time24;
+    }
     document.getElementById("date").innerHTML = year;
+    alert("12 hour format:" + time12 + " 24 hour format:" + time24);
 }
