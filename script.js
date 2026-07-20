@@ -26,9 +26,7 @@ function getTime() {
         time12 = time12 - 12;
     } else {
         let time12 = time24;
-    }
+    } console.log (time12);
     let timeMinutes = d.getMinutes();
-    alert(timeMinutes);
     document.getElementById("date").innerHTML = year;
-    alert("12 hour format:" + time12 + " 24 hour format:" + time24);
 }
