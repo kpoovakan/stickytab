@@ -11,9 +11,22 @@
         <script src="script.js"></script>
     </head>
     <body>
-        <p id="checkJavaScript">If you would like to use Stickytab, you must enable JavaScript.</p>
-        <iframe src="stickies.html" class="stickies" width="25vw" height="88vh"></iframe>
-        <input type="search" id="websearch" name="websearch" autocomplete="off" onchange="websearch()" onclick="this.select()" placeholder="enter to visit page, ctrl + enter to search the web" autofocus /></input> <!-- oninput -->
-        <p id="date"></p>
+        <iframe src="stickies.html" class="stickies"></iframe>
+        <div class="info">
+            <div style="display: block;">
+                <p id="date" class="date">today's date</p>
+                <p id="time" class="time">time of page load</p>
+                <p id="checkJavaScript">If you would like to use Stickytab, you must enable JavaScript.</p>
+                <input class="webpage" type="search" id="webpage" name="webpage" autocomplete="off" onclick="this.select()" placeholder="use your enter key to open webpage" onchange="webpage(this)" autofocus /></input> <!-- oninput -->
+                <div class="searchgrid">
+                    <input class="websearch" type="search" id="websearch" name="websearch" autocomplete="off" onclick="this.select()" placeholder="use your enter key to search the web" onchange="websearch(this)" /></input> <!-- oninput -->
+                    <select id="searchoption" class="searchoption" onchange="searchOption()">
+                        <option value="DuckDuckGo" selected>DuckDuckGo</option>
+                        <option value="Google">Google</option>
+                        <option value="Bing">Bing</option>
+                    </select>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
