@@ -14,7 +14,7 @@ window.onload = function() {
     document.getElementById("checkJavaScript").remove();
 }
 
-function getTime()) {
+function getTime() {
     const d = new Date();
     let year = d.getFullYear();
     document.getElementById("date").innerHTML = year;
