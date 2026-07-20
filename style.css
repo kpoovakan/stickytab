@@ -1,4 +1,12 @@
+:root {
+    --colorBackground: #444444;
+    --colorForeground: #cfe4d9;
+    --colorAccent: #92d3b1;
+}
+
 body {
+    background-color: var(--colorBackground);
+    color: var(--colorForeground);
     margin: 0px;
     padding: 0px;
     font-family: "Oregano", cursive;
