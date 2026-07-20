@@ -21,6 +21,7 @@ function getTime() {
     const d = new Date();
     let year = d.getFullYear();
     let time24 = d.getHours();
+    console.log(time24);
     if(time24 > 12) {
         let time12 = d.getHours();
         time12 = time12 - 12;
