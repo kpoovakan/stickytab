@@ -11,11 +11,11 @@
         <script src="script.js"></script>
     </head>
     <body>
-        <iframe src="stickies.html" class="stickies"></iframe>
+        <iframe src="components/stickies.html" class="stickies"></iframe>
         <div class="info">
             <div style="display: block;">
                 <p id="date" class="date">today's date</p>
-                <p id="time" class="time">time of page load</p>
+                <p id="time" class="time">time</p>
                 <p id="checkJavaScript">If you would like to use Stickytab, you must enable JavaScript.</p>
                 <input class="webpage" type="search" id="webpage" name="webpage" autocomplete="off" onclick="this.select()" placeholder="use your enter key to open webpage" onchange="webpage(this)" autofocus /></input> <!-- oninput -->
                 <div class="searchgrid">
@@ -26,7 +26,15 @@
                         <option value="Bing">Bing</option>
                     </select>
                 </div>
+                <iframe src="components/calculator.html" class="calculator"></iframe>
             </div>
         </div>
+        <div class="components">
+            <div class="siteList">
+                <table id="siteList" width="100%;" style="border-collapse: collapse;"></table>
+            </div>
+            <p>Everyday, I see the quick brown fox jump over the lazy dog.</p>
+        </div>
+        <dialog id="editSites"><p>Yap yap yap yap yappity yap yap...</p><button class="closeDialog" onclick="closeDialog()">save changes and close</button></dialog>
     </body>
 </html>

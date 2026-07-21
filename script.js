@@ -1,31 +1,17 @@
 "use strict";
-/* random stuff saved for later:
-https://www.w3schools.com/html/html5_webstorage.asp
-https://duckduckgo.com?q=pumpkin pie
-https://google.com/search?q=pumpkin+pie
-https://bing.com/search?q=pumpkin+pie
 
-window.addEventListener("keydown", function(event) {
-  if (event.key == "a"){
-        document.querySelector("#result").innerHTML = "You pressed the A key";
-    }
-});
-*/
-
-window.onload = function() {
-    document.getElementById("checkJavaScript").remove();
+window.onload = async function() {
+    await document.getElementById("checkJavaScript").remove();
     globalThis.searchEngine = "DuckDuckGo";
     getDate();
     getTime();
+    globalThis.storage = await localStorage.getItem("stickytabSites");
+    if(!(storage === null)) {
+        await setupStorage();
+    }
 }
 
 window.setInterval(getTime(), 1000);
-
-/* document.getElementById("websearch").addEventListener("keydown", function(event) {
-    if (event.key === "Enter" && event.ctrlKey){
-        websearch(event);
-    }
-}); */
 
 function getTime() {
     const d = new Date();
@@ -128,4 +114,55 @@ function webpage(thisElement) {
         query = "https://" + query;
     }
     window.location.href = query;
+}
+
+async function setupStorage() {
+    globalThis.storage = JSON.parse(storage);
+    globalThis.siteList = [];
+    globalThis.siteListView = '<tr><th class="siteListRight siteListHeading">your saved sites⠀/</th><th class="siteListLeft siteListHeading"><a href="javascript:void(0)" onclick="editSites()">/⠀tap here to edit</a></th></tr>';
+    let storageLength = storage.length;
+    for (let i = 0; i < storageLength; i = i+2) {
+        let item = storage[i];
+        let siteHttp = item.slice(0,7);
+        let siteHttps = item.slice(0,8);
+         if(siteHttp == "http://") {
+            item = item.slice(7);
+            globalThis.siteList.push(item);
+            item = "<tr><td class='siteListLeft'><a href='http://"+item+"'>"+item+"</a></td>";
+            globalThis.siteListView = siteListView + item;
+        } else if(siteHttps == "https://") {
+            item = item.slice(8);
+            globalThis.siteList.push(item);
+            item = "<tr><td class='siteListLeft'><a href='https://"+item+"'>"+item+"</a></td>";
+            globalThis.siteListView = siteListView + item;
+        }
+        //repeat for second thing
+        item = storage[i+1];
+        if (!(item === undefined)) {
+            siteHttp = item.slice(0,7);
+            siteHttps = item.slice(0,8);
+             if(siteHttp == "http://") {
+                item = item.slice(7);
+                globalThis.siteList.push(item);
+                item = "<td class='siteListRight'><a href='http://"+item+"'>"+item+"</a></td></tr>";
+                globalThis.siteListView = siteListView + item;
+            } else if(siteHttps == "https://") {
+                item = item.slice(8);
+                globalThis.siteList.push(item);
+                item = "<td class='siteListRight'><a href='https://"+item+"'>"+item+"</a></td></tr>";
+                globalThis.siteListView = siteListView + item;
+            }
+        } else {
+            globalThis.siteListView = siteListView + "<td class='siteListRight'></td></tr>"
+        }
+    }
+    document.getElementById("siteList").innerHTML = siteListView;
+}
+
+function editSites() {
+    document.getElementById("editSites").showModal();
+}
+
+function closeDialog() {
+    document.getElementById("editSites").close();
 }
