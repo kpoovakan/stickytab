@@ -21,8 +21,7 @@ body {
     margin-right: 3vw;
     width: 25vw;
     height: 88vh;
-    border: 1px solid var(--colorAccent);
-    /*once iframe html is uploaded, set border to none*/
+    border: none;
 }
 
 .info {
