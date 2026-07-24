@@ -59,6 +59,9 @@ async function storageAdd(item) {
         return;
     }
     let fred = storage;
+    if(fred === null) {
+    fred = [];
+    }
     fred.push(item);
     globalThis.storage = fred;
     fred = JSON.stringify(fred);
@@ -71,6 +74,9 @@ async function storageAdd(item) {
 
 function storageRemove(item, thisElement) {
     let fred = storage;
+    if(fred === null) {
+    fred = [];
+    }
     let freda = fred.indexOf(item);
     if(freda === -1) {
         alert("not found; remember to edit the response thingy for this");
