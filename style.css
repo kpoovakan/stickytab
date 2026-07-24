@@ -66,7 +66,8 @@ body {
 .searchoption {
     width: 10%;
     height: 4vh;
-    font-size: 1.1vh;
+    font-size: 1.314vh;
+    font-family: "Oregano", cursive;
     border: none;
     background-color: var(--colorForeground);
     color: var(--colorBackground);
@@ -82,6 +83,8 @@ body {
     background-color: var(--colorForeground);
     color: var(--colorBackground);
     border-radius: 3px;
+    font-family: "Oregano", cursive;
+    font-size: 1.7vh;
 }
 
 .websearch:focus {
@@ -98,6 +101,8 @@ body {
     background-color: var(--colorForeground);
     color: var(--colorBackground);
     border-radius: 3px;
+    font-family: "Oregano", cursive;
+    font-size: 1.7vh;
 }
 
 .webpage:focus {
@@ -120,7 +125,7 @@ body {
 }
 
 .siteList {
-    height: 70vh;
+    height: 77vh;
     width: 100%;
     margin: 0px;
     font-size: 2.5vh;
@@ -217,14 +222,14 @@ dialog::backdrop {
     display: block;
     border: none;
     width: 10%;
-    height: 100%;
+    height: auto;
 }
 
 .editSitesContent {
     display: block;
     /*border: 3px solid var(--colorBackground);*/
     width: 35%;
-    height: 100%;
+    height: auto;
 }
 
 .editSitesHeader {
@@ -248,7 +253,7 @@ dialog::backdrop {
 }
 
 .editSitesList {
-    height: 100%;
+    height: auto;
     width: 100%;
     margin: 0px;
     font-size: 2vh;
@@ -292,4 +297,42 @@ dialog::backdrop {
     a:hover{
         cursor: pointer;
     }
+}
+
+.settingsButtons {
+    display: block;
+    width: 5vw;
+    height: 5vw;
+    background-color: var(--colorForeground);
+    color: var(--colorBackground);
+    font-size: 1.314vw;
+    box-sizing: border-box;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    font-family: "Oregano", cursive;
+    text-align: center;
+    padding: auto;
+    letter-spacing: 1.5px;
+    margin-left: 1vw;
+}
+
+.settingsButtons:hover {
+    cursor: pointer;
+    background-color: transparent;
+    color: var(--colorForeground);
+    border: 2px solid var(--colorForeground);
+
+}
+
+.settingsSelect {
+    background-color: var(--colorBackground);
+    color: var(--colorForeground);
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    font-family: "Oregano", cursive;
+    font-size: 1.5vw;
+    padding: 13px;
+    text-align: center;
 }

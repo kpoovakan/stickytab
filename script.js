@@ -4,7 +4,10 @@ let arrayMonths = ["January","February","March","April","May","June","July","Aug
 
 window.onload = function() {
     document.getElementById("checkJavaScript").remove();
-    globalThis.searchEngine = "DuckDuckGo";
+    globalThis.searchEngine = localStorage.getItem("stickytabEngine");
+    document.getElementById("searchoption").value = searchEngine;
+    globalThis.timeFormat = 12;
+    globalThis.timeFormat = localStorage.getItem("stickytabTime");
     getDate();
     getTime();
     window.setInterval(getTime(), 1000);
@@ -13,12 +16,14 @@ window.onload = function() {
 function getTime() {
     const d = new Date();
     let time24 = d.getHours();
-    /*if(time24 > 12) {
-        let time12 = d.getHours();
+    time24 = Number(time24);
+    if(time24 > 12) {
+        var time12 = d.getHours();
+        time12 = Number(time12);
         time12 = time12 - 12;
     } else {
-        let time12 = time24;
-    } console.log (time12);*/
+        var time12 = time24;
+    }
     let timeMinutes = d.getMinutes();
     if(timeMinutes < 10) {
         timeMinutes = timeMinutes.toString();
@@ -28,7 +33,11 @@ function getTime() {
         time24 = time24.toString();
         time24 = "0" + time24;
     }
-    let time = time24 + ":" + timeMinutes;
+    if(timeFormat == 24) {
+        var time = time24 + ":" + timeMinutes;
+    } else {
+        var time = time12 + ":" + timeMinutes;
+    }
     document.getElementById("time").innerHTML = time;
 }
 
@@ -103,7 +112,7 @@ function websearch(thisElement) {
         globalThis.searchURL = "https://google.com/search?q=" + query;
     } else if(searchEngine === "Bing") {
         globalThis.searchURL = "https://bing.com/search?q=" + query;
-    } else { alert("error with search engines determination"); }
+    } else { alert("please use the dropdown menu to select a search engine. set a default search engine in the settings."); }
     window.location.href = searchURL;
 }
 
@@ -119,6 +128,31 @@ function editSites() {
     document.getElementById("editSites").showModal();
 }
 
-function closeDialog() {
+function editSettings() {
+    document.getElementById("settings").showModal();
+}
+
+function closeSiteEditor() {
     document.getElementById("editSites").close();
+}
+
+function closeSettingsEditor() {
+    document.getElementById("settings").close();
+}
+
+function openHelp() {
+    window.location.href="https://github.com/kpoovakan/stickytab#stickytab";
+}
+
+function setTimeFormat(thisElement) {
+    globalThis.timeFormat = thisElement.value;
+    window.localStorage.setItem("stickytabTime", timeFormat);
+    location.reload();
+
+}
+
+function setSearchEngine(thisElement) {
+    globalThis.searchEngine = thisElement.value;
+    window.localStorage.setItem("stickytabEngine", searchEngine);
+    location.reload();
 }

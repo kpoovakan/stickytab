@@ -33,7 +33,11 @@
             <div class="siteList">
                 <table id="siteList" width="100%;" style="border-collapse: collapse;"></table>
             </div>
-            <p>Everyday, I see the quick brown fox jump over the lazy dog.</p>
+            <div style="width: 100%; display: flex; justify-content: flex-end;">
+                <button class="settingsButtons" onclick="editSites()">saved sites</button>
+                <button class="settingsButtons" onclick="editSettings()">settings</button>
+                <button class="settingsButtons" style="margin-right: 1vw;" onclick="openHelp()">help</button>
+            </div>
         </div>
         <dialog id="editSites">
             <div style="display: flex;">
@@ -52,7 +56,26 @@
                 </div>
                 <div class="editSitesSpacer"></div>
             </div>
-            <button class="closeDialog" onclick="closeDialog()">save changes and close</button>
+            <button class="closeDialog" onclick="closeSiteEditor()">save changes and close</button>
+        </dialog>
+        <dialog id="settings">
+            <div style="display: inline; font-size: 2vw;">
+                <p>time format: 
+                <select class="settingsSelect" width="auto" onchange="setTimeFormat(this)">
+                    <option value="onload" disabled selected hidden>pick new time format</option>
+                    <option value="12">12 HOUR</option>
+                    <option value="24">24 HOUR</option>
+                </select></p>
+                <p>default search engine: 
+                    <select class="settingsSelect" width="auto" onchange="setSearchEngine(this)">
+                        <option value="onload" disabled selected hidden>pick new engine</option>
+                        <option value="DuckDuckGo">Duck Duck Go</option>
+                        <option value="Google">Google</option>
+                        <option value="Bing">Bing</option>
+                    </select>
+                </p>
+            </div>
+            <button class="closeDialog" onclick="closeSettingsEditor()">save changes and close</button>
         </dialog>
         <script src="storage.js"></script>
     </body>
