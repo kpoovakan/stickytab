@@ -115,7 +115,7 @@ body {
     margin: 6vh 0px;
     margin-bottom: 0px;
     border: none;
-    outline: 1px solid var(--colorForeground);
+    outline: none;
 }
 
 .components {
