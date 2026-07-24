@@ -35,6 +35,25 @@
             </div>
             <p>Everyday, I see the quick brown fox jump over the lazy dog.</p>
         </div>
-        <dialog id="editSites"><p>Yap yap yap yap yappity yap yap...</p><button class="closeDialog" onclick="closeDialog()">save changes and close</button></dialog>
+        <dialog id="editSites">
+            <div style="display: flex;">
+                <div class="editSitesSpacer"></div>
+                <div class="editSitesContent">
+                    <p class="editSitesHeader">add a site</p>
+                    <input type="text" class="editSitesInput" id="addSite" name="addSite" autocomplete="off" onclick="this.select()" onchange="storageAdd(this.value)" placeholder="press enter to add site.."></input>
+                    <p>you must include the http or https at the beginning of the site url.</p>
+                </div>
+                <div class="editSitesSpacer"></div>
+                <div class="editSitesContent">
+                    <p class="editSitesHeader">remove a site</p>
+                    <div class="siteList">
+                        <table id="editSitesList" width="100%;" style="border-collapse: collapse; font-size: 2vh;"></table>
+                    </div>
+                </div>
+                <div class="editSitesSpacer"></div>
+            </div>
+            <button class="closeDialog" onclick="closeDialog()">save changes and close</button>
+        </dialog>
+        <script src="storage.js"></script>
     </body>
 </html>

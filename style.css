@@ -167,17 +167,35 @@ body {
 }
 
 dialog {
-    background-color: var(--colorForeground);
+    background-color: transparent;
     color: var(--colorBackground);
+    font-size: 2vh;
     width: 70vw;
     height: 70vh;
+    overflow: auto;
+    outline: none;
+    border: 3px solid var(--colorBackground);
+    border-radius: 3px;
+    animation-name: dialogAnimation;
+    animation-duration: 0.314s;
+    background-color: var(--colorForeground);
+}
+
+@keyframes dialogAnimation {
+    from {background-color: transparent;}
+    to {background-color: var(--colorForeground);}
+}
+
+dialog::backdrop {
+    background-color: color-mix(in oklab, #00000000 50%, var(--colorBackground));
+    backdrop-filter: blur(3px);
 }
 
 .closeDialog {
-    position: absolute;
+    position: fixed;
     display: block;
-    bottom: 0;
-    right: 0;
+    bottom: 9vh;
+    right: 13vw;
     background-color: var(--colorForeground);
     color: var(--colorBackground);
     border: 3px solid var(--colorBackground);
@@ -191,5 +209,87 @@ dialog {
 .closeDialog:hover {
     background-color: var(--colorBackground);
     color: var(--colorForeground);
+    /*border: 3px solid var(--colorForeground);*/
     cursor: pointer;
+}
+
+.editSitesSpacer {
+    display: block;
+    border: none;
+    width: 10%;
+    height: 100%;
+}
+
+.editSitesContent {
+    display: block;
+    /*border: 3px solid var(--colorBackground);*/
+    width: 35%;
+    height: 100%;
+}
+
+.editSitesHeader {
+    font-size: 3vw;
+    text-align: center;
+    font-weight: 700;
+    margin-top: 0px;
+}
+
+.editSitesInput {
+    background-color: var(--colorBackground);
+    color: var(--colorForeground);
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    width: 100%;
+    padding: 13px;
+    box-sizing: border-box;
+    font-family: "Oregano", cursive;
+    font-size: 1.5vw;
+}
+
+.editSitesList {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    font-size: 2vh;
+    overflow: auto;
+}
+
+.editSitesListLeft {
+    text-align: left;
+    padding: 0px;
+    padding-left: 1vw;
+    width: 50%;
+    margin: 0px;
+    a:link, a:visited, a:hover{
+        color: var(--colorBackground);
+        font-weight: 400;
+    }
+}
+
+.editSitesListRight {
+    text-align: right;
+    padding: 0px;
+    padding-right: 1vw;
+    width: 50%;
+    margin: 0px;
+    a:link, a:visited, a:hover{
+        color: var(--colorBackground);
+        font-weight: 400;
+    }
+}
+
+.editSitesListHeading {
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 2vh;
+    font-size: 2vh;
+    a:link, a:visited{
+        color: var(--colorBackground);
+        font-weight: 700;
+        text-decoration: none;
+    }
+    a:hover{
+        cursor: pointer;
+    }
 }

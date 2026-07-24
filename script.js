@@ -1,17 +1,14 @@
 "use strict";
+let arrayDays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+let arrayMonths = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 
-window.onload = async function() {
-    await document.getElementById("checkJavaScript").remove();
+window.onload = function() {
+    document.getElementById("checkJavaScript").remove();
     globalThis.searchEngine = "DuckDuckGo";
     getDate();
     getTime();
-    globalThis.storage = await localStorage.getItem("stickytabSites");
-    if(!(storage === null)) {
-        await setupStorage();
-    }
+    window.setInterval(getTime(), 1000);
 }
-
-window.setInterval(getTime(), 1000);
 
 function getTime() {
     const d = new Date();
@@ -35,13 +32,15 @@ function getTime() {
     document.getElementById("time").innerHTML = time;
 }
 
-async function getDate() {
-    let months = await fetch("jsondata/months.json");
-    months = await months.text();
-    months = await JSON.parse(months);
-    let weekdays = await fetch("jsondata/days.json");
-    weekdays = await weekdays.text();
-    weekdays = await JSON.parse(weekdays);
+/*async*/ function getDate() {
+    //let months = await fetch("jsondata/months.json");
+    //months = await months.text();
+    let months = arrayMonths;
+    //months = await JSON.parse(months);
+    //let weekdays = await fetch("jsondata/days.json");
+    //weekdays = await weekdays.text();
+    let weekdays = arrayDays;
+    //weekdays = await JSON.parse(weekdays);
     const d = new Date();
     let year = d.getFullYear();
     let month = d.getMonth();
@@ -114,49 +113,6 @@ function webpage(thisElement) {
         query = "https://" + query;
     }
     window.location.href = query;
-}
-
-async function setupStorage() {
-    globalThis.storage = JSON.parse(storage);
-    globalThis.siteList = [];
-    globalThis.siteListView = '<tr><th class="siteListRight siteListHeading">your saved sites⠀/</th><th class="siteListLeft siteListHeading"><a href="javascript:void(0)" onclick="editSites()">/⠀tap here to edit</a></th></tr>';
-    let storageLength = storage.length;
-    for (let i = 0; i < storageLength; i = i+2) {
-        let item = storage[i];
-        let siteHttp = item.slice(0,7);
-        let siteHttps = item.slice(0,8);
-         if(siteHttp == "http://") {
-            item = item.slice(7);
-            globalThis.siteList.push(item);
-            item = "<tr><td class='siteListLeft'><a href='http://"+item+"'>"+item+"</a></td>";
-            globalThis.siteListView = siteListView + item;
-        } else if(siteHttps == "https://") {
-            item = item.slice(8);
-            globalThis.siteList.push(item);
-            item = "<tr><td class='siteListLeft'><a href='https://"+item+"'>"+item+"</a></td>";
-            globalThis.siteListView = siteListView + item;
-        }
-        //repeat for second thing
-        item = storage[i+1];
-        if (!(item === undefined)) {
-            siteHttp = item.slice(0,7);
-            siteHttps = item.slice(0,8);
-             if(siteHttp == "http://") {
-                item = item.slice(7);
-                globalThis.siteList.push(item);
-                item = "<td class='siteListRight'><a href='http://"+item+"'>"+item+"</a></td></tr>";
-                globalThis.siteListView = siteListView + item;
-            } else if(siteHttps == "https://") {
-                item = item.slice(8);
-                globalThis.siteList.push(item);
-                item = "<td class='siteListRight'><a href='https://"+item+"'>"+item+"</a></td></tr>";
-                globalThis.siteListView = siteListView + item;
-            }
-        } else {
-            globalThis.siteListView = siteListView + "<td class='siteListRight'></td></tr>"
-        }
-    }
-    document.getElementById("siteList").innerHTML = siteListView;
 }
 
 function editSites() {
