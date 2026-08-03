@@ -17,9 +17,9 @@
                 <p id="date" class="date">today's date</p>
                 <p id="time" class="time">time</p>
                 <p id="checkJavaScript">If you would like to use Stickytab, you must enable JavaScript.</p>
-                <input class="webpage" type="search" id="webpage" name="webpage" autocomplete="off" onclick="this.select()" placeholder="use your enter key to open webpage" onchange="webpage(this)" autofocus /></input> <!-- oninput -->
+                <input class="webpage" type="search" id="webpage" name="webpage" autocomplete="off" onclick="this.select()" placeholder="type a WEBPAGE URL then press enter to open webpage" onchange="webpage(this)" autofocus /></input> <!-- oninput -->
                 <div class="searchgrid">
-                    <input class="websearch" type="search" id="websearch" name="websearch" autocomplete="off" onclick="this.select()" placeholder="use your enter key to search the web" onchange="websearch(this)" /></input> <!-- oninput -->
+                    <input class="websearch" type="search" id="websearch" name="websearch" autocomplete="off" onclick="this.select()" placeholder="type a WEBSEARCH QUERY then press enter to search the web" onchange="websearch(this)" /></input> <!-- oninput -->
                     <select id="searchoption" class="searchoption" onchange="searchOption()">
                         <option value="DuckDuckGo" selected>DuckDuckGo</option>
                         <option value="Google">Google</option>
@@ -72,6 +72,18 @@
                         <option value="DuckDuckGo">Duck Duck Go</option>
                         <option value="Google">Google</option>
                         <option value="Bing">Bing</option>
+                    </select>
+                </p>
+                <p>Desmos button opens: 
+                    <select class="settingsSelect" width="auto" onchange="setDesmos(this)">
+                        <option value="onload" disabled selected hidden>pick new Desmos link</option>
+                        <option value="scientific">scientific calculator</option>
+                        <option value="calculator">graphing calculator</option>
+                        <option value="fourfunction">four function calculator</option>
+                        <option value="matrix">matrix calculator</option>
+                        <option value="geometry">geometry calculator</option>
+                        <option value="3d">3D calculator</option>
+                        <option value="notebook">Desmos notebook</option>
                     </select>
                 </p>
             </div>

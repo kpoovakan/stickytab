@@ -6,8 +6,14 @@ window.onload = function() {
     document.getElementById("checkJavaScript").remove();
     globalThis.searchEngine = localStorage.getItem("stickytabEngine");
     document.getElementById("searchoption").value = searchEngine;
-    globalThis.timeFormat = 12;
     globalThis.timeFormat = localStorage.getItem("stickytabTime");
+    if(timeFormat == null) {
+        globalThis.timeFormat = 12;
+    }
+    globalThis.desmosLink = localStorage.getItem("stickytabDesmos");
+    if(desmosLink == null) {
+        window.localStorage.setItem("stickytabDesmos", "scientific");
+    }
     getDate();
     getTime();
     window.setInterval(getTime(), 1000);
@@ -112,14 +118,18 @@ function websearch(thisElement) {
         globalThis.searchURL = "https://google.com/search?q=" + query;
     } else if(searchEngine === "Bing") {
         globalThis.searchURL = "https://bing.com/search?q=" + query;
-    } else { alert("please use the dropdown menu to select a search engine. set a default search engine in the settings."); }
+    } else { alert("please use the dropdown menu to select a search engine. the dropdown menu is to the right of the websearch bar. set a default search engine in the settings."); }
     window.location.href = searchURL;
 }
 
 function webpage(thisElement) {
     let query = thisElement.value;
     if(!query.includes("http") || !query.includes("://")) {
-        query = "https://" + query;
+        if(query.includes("localhost:")) {
+            query = "http://" + query;
+        } else {
+            query = "https://" + query;
+        }
     }
     window.location.href = query;
 }
@@ -154,5 +164,12 @@ function setTimeFormat(thisElement) {
 function setSearchEngine(thisElement) {
     globalThis.searchEngine = thisElement.value;
     window.localStorage.setItem("stickytabEngine", searchEngine);
-    location.reload();
+    //location.reload();
+    document.getElementById("searchoption").value = searchEngine;
+}
+
+function setDesmos(thisElement) {
+    globalThis.desmosLink = thisElement.value;
+    window.localStorage.setItem("stickytabDesmos", desmosLink);
+    //location.reload();
 }

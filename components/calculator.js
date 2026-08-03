@@ -98,5 +98,10 @@ function eraseVariables() {
 }
 
 function openDesmos() {
-    window.top.location.href = "https://desmos.com/scientific";
+    globalThis.desmosLink = localStorage.getItem("stickytabDesmos");
+    if(desmosLink == null) {
+        window.top.location.href = "https://www.desmos.com/scientific"
+    } else {
+        window.top.location.href = "https://www.desmos.com/"+desmosLink;
+    }
 }
