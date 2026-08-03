@@ -15,7 +15,6 @@ var valueOne = "";
 var valueTwo = "";
 var valueMid = "";
 var prevDecimal = 0; //for decimal code
-var progress = ""; //idk yet?
 var currentEdit = 1;
 var actionNames = '{"add":"+", "subtract":"-", "multiply":"x", "divide":"÷", "sqrt":"√", "":""}';
 var actionNames = JSON.parse(actionNames);
@@ -23,6 +22,17 @@ var actionNames = JSON.parse(actionNames);
 
 
 function updateCurrentValue(withThis) {
+    if(currentEdit == 1) {
+        if(String(valueOne).length > 5) {
+            alert("whoa.. that's a big number. use Desmos instead.");
+            return;
+        }
+    } else if(currentEdit == 2) {
+        if(String(valueTwo).length > 5) {
+            alert("whoa.. that's a big number. use Desmos instead.");
+            return;
+        }
+    }
     if (withThis == "decimal") {
         globalThis.prevDecimal = 1;
         return;

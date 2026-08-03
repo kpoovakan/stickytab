@@ -5,6 +5,9 @@ let arrayMonths = ["January","February","March","April","May","June","July","Aug
 window.onload = function() {
     document.getElementById("checkJavaScript").remove();
     globalThis.searchEngine = localStorage.getItem("stickytabEngine");
+    if(searchEngine == null) {
+        globalThis.searchEngine = "Google";
+    }
     document.getElementById("searchoption").value = searchEngine;
     globalThis.timeFormat = localStorage.getItem("stickytabTime");
     if(timeFormat == null) {
@@ -16,7 +19,7 @@ window.onload = function() {
     }
     getDate();
     getTime();
-    window.setInterval(getTime(), 1000);
+    //window.setInterval(getTime(), 1000);
 }
 
 function getTime() {
