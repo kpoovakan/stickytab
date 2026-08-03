@@ -23,12 +23,12 @@ var actionNames = JSON.parse(actionNames);
 
 function updateCurrentValue(withThis) {
     if(currentEdit == 1) {
-        if(String(valueOne).length > 5) {
+        if(String(valueOne).length > 4) {
             alert("whoa.. that's a big number. use Desmos instead.");
             return;
         }
     } else if(currentEdit == 2) {
-        if(String(valueTwo).length > 5) {
+        if(String(valueTwo).length > 4) {
             alert("whoa.. that's a big number. use Desmos instead.");
             return;
         }
