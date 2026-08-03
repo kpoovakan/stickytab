@@ -2,9 +2,36 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="/stickytab/style.css">
+        <link rel="stylesheet" type="text/css" href="/style.css">
+        <script src="calculator.js"></script>
     </head>
     <body>
-
+        <div class="calculatorContainer" id="calculatorContainer">
+            <div class="calculatorAnswer" id="answer"></div>
+            <div class="buttonRow">
+                <button class="calculatorButtons" onclick="updateCurrentValue(1)">1</button>
+                <button class="calculatorButtons" onclick="updateCurrentValue(2)">2</button>
+                <button class="calculatorButtons" onclick="updateCurrentValue(3)">3</button>
+                <button class="calculatorButtons" onclick="updateCurrentValue(0)">0</button>
+                <button class="calculatorButtons" onclick="action('add')">+</button>
+                <button class="calculatorButtons" onclick="action('multiply')">x</button>
+            </div>
+            <div class="buttonRow">
+                <button class="calculatorButtons" onclick="updateCurrentValue(4)">4</button>
+                <button class="calculatorButtons" onclick="updateCurrentValue(5)">5</button>
+                <button class="calculatorButtons" onclick="updateCurrentValue(6)">6</button>
+                <button class="calculatorButtons" onclick="updateCurrentValue('decimal')">.</button>
+                <button class="calculatorButtons" onclick="action('subtract')">-</button>
+                <button class="calculatorButtons" onclick="action('divide')">÷</button>
+            </div>
+            <div class="buttonRow">
+                <button class="calculatorButtons" onclick="updateCurrentValue(7)">7</button>
+                <button class="calculatorButtons" onclick="updateCurrentValue(8)">8</button>
+                <button class="calculatorButtons" onclick="updateCurrentValue(9)">9</button>
+                <button class="calculatorButtons" onclick="action('sqrt')">√</button>
+                <button class="calculatorButtons calculatorButtonsAccent" onclick="equals()">=</button>
+                <button class="calculatorButtons calculatorButtonsAccent" onclick="openDesmos()">desmos</button>
+            </div>
+        </div>
     </body>
 </html>

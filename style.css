@@ -336,3 +336,49 @@ dialog::backdrop {
     padding: 13px;
     text-align: center;
 }
+
+.calculatorButtons {
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    background-color: var(--colorForeground);
+    color: var(--colorBackground);
+    font-family: "Oregano", cursive;
+    padding: 3px;
+    font-size: 5vw;
+    width: 15vw;
+    height: 16vh;
+    margin: 1vh 0px;
+    margin-left: 1vw;
+}
+
+.calculatorButtonsAccent {
+    background-color: var(--colorAccent);
+}
+
+.calculatorButtons:hover {
+    cursor: pointer;
+}
+
+.buttonRow {
+    display: flex;
+    margin: 0px;
+    margin-left: 1vw;
+    margin-right: 3vw;
+    padding: 0px;
+}
+
+.calculatorContainer {
+    display: block;
+    margin: 0px;
+    padding: 0px;
+}
+
+.calculatorAnswer {
+    margin: 1vh 1vw;
+    height: 32vh;
+    width: 90vw;
+    font-size: 24vh;
+    overflow: auto;
+    text-align: right;
+}
