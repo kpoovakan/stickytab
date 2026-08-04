@@ -207,7 +207,7 @@ dialog::backdrop {
     border-radius: 3px;
     font-size: 2vh;
     margin: 3vh;
-    font-family: Oregano, cursive;
+    font-family: "Oregano", cursive;
     padding: 3px;
 }
 
