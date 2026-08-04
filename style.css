@@ -393,3 +393,40 @@ input::-ms-clear {
   width: 0;
   height: 0;
 }
+
+.searchAutocomplete {
+    position: fixed;
+    top: 7vh;
+    left: 37vw;
+    right: 37vw;
+    width: 25vw;
+    height: 35vh;
+    z-index: 314;
+    background-color: var(--colorForeground);
+    color: var(--colorBackground);
+    outline: none;
+    border: 2px solid var(--colorBackground);
+    border-radius: 3px;
+    margin: 0;
+    padding: 0.3vw;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+.searchAutocompleteAnimation {
+    overflow: hidden;
+    position: fixed;
+    animation: showAutocomplete 2s ease-in;
+}
+
+@keyframes showAutocomplete {
+    0% {
+        top: 31vh;
+    }
+    50% {
+        top: 12vh;
+    }
+    100% {
+        top: 7vh;
+    }
+}

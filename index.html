@@ -17,7 +17,7 @@
                 <p id="date" class="date"></p>
                 <p id="time" class="time"></p>
                 <p id="checkJavaScript">If you would like to use Stickytab, you must enable JavaScript.</p>
-                <input class="webpage" type="search" id="webpage" name="webpage" autocomplete="off" onclick="this.select()" placeholder="type a WEBPAGE URL then press enter to open webpage" onchange="webpage(this)" autofocus /></input> <!-- oninput -->
+                <input class="webpage" type="search" id="webpage" name="webpage" autocomplete="off" onclick="this.select()" placeholder="type a WEBPAGE URL then press enter to open webpage" onchange="webpage(this)" oninput="websearchAutocomplete()" autofocus /></input> <!-- oninput -->
                 <div class="searchgrid">
                     <input class="websearch" type="search" id="websearch" name="websearch" autocomplete="off" onclick="this.select()" placeholder="type a WEBSEARCH QUERY then press enter to search the web" onchange="websearch(this)" /></input> <!-- oninput -->
                     <select id="searchoption" class="searchoption" onchange="searchOption()">
@@ -89,6 +89,10 @@
             </div>
             <button class="closeDialog" onclick="closeSettingsEditor()">save changes and close</button>
         </dialog>
+        <div class="searchAutocomplete" id="searchAutocomplete" style="display: none;">
+            <p>Everyday, I see the quick brown fox jump over the lazy dog.</p>
+        </div>
         <script src="storage.js"></script>
+        <script src="search.js" defer></script>
     </body>
 </html>
