@@ -115,3 +115,22 @@ function openDesmos() {
         window.top.location.href = "https://www.desmos.com/"+desmosLink;
     }
 }
+
+function del() {
+    if(currentEdit == 1) {
+        globalThis.valueOne = String(valueOne);
+        var vLength = valueOne.length;
+        var vLength = vLength - 1;
+        globalThis.valueOne = valueOne.slice(0, vLength);
+        globalThis.valueOne = Number(valueOne);
+    } else if(valueTwo == "") {
+        globalThis.valueMid = "";
+    } else {
+        globalThis.valueTwo = String(valueTwo);
+        var vLength = valueTwo.length;
+        var vLength = vLength - 1;
+        globalThis.valueTwo = valueTwo.slice(0, vLength);
+        globalThis.valueTwo = Number(valueTwo);
+    }
+    document.getElementById("answer").innerHTML = "<p style='margin: 0px;'>"+String(valueOne)+actionNames[valueMid]+String(valueTwo)+"</p>";
+}
