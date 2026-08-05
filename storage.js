@@ -57,6 +57,9 @@ async function storageAdd(item) {
     if(freda === undefined) {
         alert("please enter site URL");
         return;
+    } else if(!(freda.slice(0,4) == "http")) {
+        alert("please include the http or https");
+        return;
     }
     let fred = storage;
     if(fred === null) {
