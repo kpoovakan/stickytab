@@ -396,11 +396,12 @@ input::-ms-clear {
 
 .searchAutocomplete {
     position: fixed;
-    top: 7vh;
+    /*top: 7vh;*/
+    bottom: 58vh;
     left: 37vw;
     right: 37vw;
     width: 25vw;
-    height: 35vh;
+    height: min(auto, 35vh);
     z-index: 314;
     background-color: var(--colorForeground);
     color: var(--colorBackground);
@@ -408,7 +409,7 @@ input::-ms-clear {
     border: 2px solid var(--colorBackground);
     border-radius: 3px;
     margin: 0;
-    padding: 0.3vw;
+    padding: 0;
     box-sizing: border-box;
     overflow: auto;
 }
@@ -418,7 +419,8 @@ input::-ms-clear {
     position: fixed;
     animation: showAutocomplete 2s ease-in;
 }
-
+/* the animation code is here for reference.
+the animation is not actually used. */
 @keyframes showAutocomplete {
     0% {
         top: 31vh;
@@ -429,4 +431,24 @@ input::-ms-clear {
     100% {
         top: 7vh;
     }
+}
+
+.autocompleteOption {
+    margin: 0;
+    padding: 0.3vw;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-family: "Oregano", cursive;
+    width: 100%;
+    height: auto;
+    text-align: right;
+    font-size: inherit;
+    font-weight: normal;
+    color: var(--colorBackground);
+}
+
+.autocompleteOption:hover {
+    /*background-color: var(--colorAccent) !important;*/
+    cursor: pointer;
 }

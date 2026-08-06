@@ -115,6 +115,9 @@ function searchOption() {
 
 function websearch(thisElement) {
     const query = thisElement.value;
+    if(query == "") {
+        return;
+    }
     if (searchEngine === "DuckDuckGo") {
         globalThis.searchURL = "https://duckduckgo.com?q=" + query;
     } else if(searchEngine === "Google") {
@@ -126,6 +129,9 @@ function websearch(thisElement) {
 }
 
 function webpage(thisElement) {
+    if(autocomplete) {
+        return;
+    }
     let query = thisElement.value;
     if(!query.includes("http") || !query.includes("://")) {
         if(query.includes("localhost:")) {
