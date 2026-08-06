@@ -449,6 +449,6 @@ the animation is not actually used. */
 }
 
 .autocompleteOption:hover {
-    /*background-color: var(--colorAccent) !important;*/
+    background-color: var(--colorAccent) !important;
     cursor: pointer;
 }

@@ -34,6 +34,11 @@ function updateCurrentValue(withThis) {
         }
     }
     if (withThis == "decimal") {
+        if(currentEdit == 1) {
+            document.getElementById("answer").innerHTML = "<p style='margin: 0px;'>"+String(valueOne)+"."+actionNames[valueMid]+String(valueTwo)+"</p>";
+        } else {
+            document.getElementById("answer").innerHTML = "<p style='margin: 0px;'>"+String(valueOne)+actionNames[valueMid]+String(valueTwo)+"."+"</p>";
+        }
         globalThis.prevDecimal = 1;
         return;
     } else if(prevDecimal) {
@@ -117,6 +122,12 @@ function openDesmos() {
 }
 
 function del() {
+    if(String(document.getElementById("answer").innerHTML).includes("NaN")) {
+        eraseVariables();
+        globalThis.valueOne = "";
+        document.getElementById("answer").innerHTML = "<p style='margin: 0px;'></p>";
+        return;
+    }
     if(currentEdit == 1) {
         globalThis.valueOne = String(valueOne);
         var vLength = valueOne.length;

@@ -89,8 +89,8 @@
             </div>
             <button class="closeDialog" onclick="closeSettingsEditor()">save changes and close</button>
         </dialog>
-        <div class="searchAutocomplete" id="searchAutocomplete" style="display: none;">
-            <p>Everyday, I see the quick brown fox jump over the lazy dog.</p>
+        <div class="searchAutocomplete" id="searchAutocomplete" style="display: none;" onmouseenter="autocompleteTransparent()" onmouseleave="highlightSelection()">
+            <p>3.141592653589792384626433...</p>
         </div>
         <script src="storage.js"></script>
         <script src="search.js" defer></script>

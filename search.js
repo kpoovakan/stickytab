@@ -81,7 +81,12 @@ function highlightSelection() {
     for (const child of zeElement.children) {
         child.style.backgroundColor = "transparent";
     }
-    console.log(tracker);
-    console.log("searchOption"+tracker);
     document.getElementById("searchOption"+tracker).style.backgroundColor = "var(--colorAccent)";
+}
+
+function autocompleteTransparent() {
+    const zeElement = document.getElementById("searchAutocomplete");
+    for (const child of zeElement.children) {
+        child.style.backgroundColor = "transparent";
+    }
 }
