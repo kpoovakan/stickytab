@@ -20,6 +20,15 @@ window.onload = function() {
     getDate();
     getTime();
     //window.setInterval(getTime(), 1000);
+    let windowWidth = window.innerWidth;
+    let windowHeight = window.innerHeight;
+    var ratio = windowWidth / 960;
+    var ratio = ratio * 473;
+    let ratioBig = windowHeight + 31;
+    let ratioSmall = windowHeight - 31;
+    if(!(ratioSmall < ratio && ratio < ratioBig)) {
+        document.getElementById("preventMobile").showModal();
+    }
 }
 
 function getTime() {
