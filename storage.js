@@ -82,17 +82,18 @@ function storageRemove(item, thisElement) {
     }
     let freda = fred.indexOf(item);
     if(freda === -1) {
-        alert("not found; remember to edit the response thingy for this");
+        alert("uh.. i have no clue what you just did..");
         return;
     }
     fred.splice(freda, 1);
     fred = JSON.stringify(fred);
-    console.log(localStorage.getItem("stickytabSites"));
-    console.log(fred);
+    //console.log(localStorage.getItem("stickytabSites"));
+    //console.log(fred);
     window.localStorage.setItem("stickytabSites", fred);
     setupStorage();
     //editSitesList();
-    thisElement.remove();
+    //thisElement.remove();
+    location.reload();
 }
 
 function editSitesList() {
