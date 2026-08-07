@@ -33,7 +33,7 @@ function websearchAutocomplete() {
     document.getElementById("searchAutocomplete").innerHTML = autocomplete;
     globalThis.tracker = 1;
     if(autocomplete.length > 0) {
-        highlightSelection();
+        highlightSelection(1);
     } else {
         document.getElementById("searchAutocomplete").style.display = "none";
     }
@@ -53,6 +53,8 @@ document.addEventListener("keydown", (event) => {
     if(event.key === "Enter") {
         if(show == "none") {
             webpage(document.getElementById("webpage"));
+        } else if(tracker > searchItems) {
+            alert("none selected");
         } else {
             let selection = document.getElementById("searchOption"+tracker).innerHTML;
             selection = siteList.indexOf(selection);
@@ -63,25 +65,33 @@ document.addEventListener("keydown", (event) => {
         event.preventDefault();
         if(tracker > 1) {
             globalThis.tracker = tracker - 1;
-            highlightSelection();
+            highlightSelection(1);
         }
     } else if(event.key === "ArrowDown") {
         event.preventDefault();
         if(tracker < searchItems) {
             globalThis.tracker = tracker + 1;
-            highlightSelection();
+            highlightSelection(1);
+        } else if(tracker == searchItems) {
+            globalThis.tracker = tracker + 1;
+            highlightSelection(0);
+        } else if(tracker > searchItems) {
+            globalThis.tracker = 1;
+            highlightSelection(1);
         }
     } else {
         return;
     }
 });
 
-function highlightSelection() {
+function highlightSelection(selectedTrue) {
     const zeElement = document.getElementById("searchAutocomplete");
     for (const child of zeElement.children) {
         child.style.backgroundColor = "transparent";
     }
-    document.getElementById("searchOption"+tracker).style.backgroundColor = "var(--colorAccent)";
+    if(selectedTrue) {
+        document.getElementById("searchOption"+tracker).style.backgroundColor = "var(--colorAccent)";
+    }
 }
 
 function autocompleteTransparent() {
