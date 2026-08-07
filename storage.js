@@ -140,3 +140,57 @@ function editSitesList() {
     }
     document.getElementById("editSitesList").innerHTML = editSitesListView;
 }
+
+// the following code is probably for saving and loading storage
+// the functions are for testing purposes only and are never actually called anywhere in the scripts
+
+function getStorage() {
+    var storageStickies = localStorage.getItem("extensions.turbowarp.org/local-storage:kpoovakan/stickytab");
+    /*if(!(storageStickies === null)) {
+        var storageStickies = JSON.parse(storageStickies);
+    }*/
+
+    var storageDesmos = localStorage.getItem("stickytabDesmos");
+    /*if(!(storageDesmos === null)) {
+        var storageDesmos = JSON.parse(storageDesmos);
+    }*/
+
+    var storageEngine = localStorage.getItem("stickytabEngine");
+    /*if(!(storageEngine === null)) {
+        var storageEngine = JSON.parse(storageEngine);
+    }*/
+
+    var storageSites = localStorage.getItem("stickytabSites");
+    /*if(!(storageSites === null)) {
+        var storageSites = JSON.parse(storageSites);
+    }*/
+
+    var storageTime = localStorage.getItem("stickytabTime");
+    /*if(!(storageTime === null)) {
+        var storageTime = JSON.parse(storageTime);
+    }*/
+
+    var saveStorage = [];
+    saveStorage.push(storageStickies);
+    saveStorage.push(storageDesmos);
+    saveStorage.push(storageEngine);
+    saveStorage.push(storageSites);
+    saveStorage.push(storageTime);
+    navigator.clipboard.writeText(saveStorage);
+    console.log(saveStorage);
+
+}
+
+function setStorage(query) {
+    var storageStickies = query[0];
+    var storageDesmos = query[1];
+    var storageEngine = query[2];
+    var storageSites = query[3];
+    console.log(storageSites);
+    var storageTime = query [4];
+    //window.localStorage.setItem("extensions.turbowarp.org/local-storage:kpoovakan/stickytab", storageStickies);
+    window.localStorage.setItem("stickytabDesmos", storageDesmos);
+    window.localStorage.setItem("stickytabEngine", storageEngine);
+    window.localStorage.setItem("stickytabSites", storageSites);
+    window.localStorage.setItem("stickytabTime", storageTime);
+}
