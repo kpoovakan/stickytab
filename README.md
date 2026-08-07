@@ -1,6 +1,6 @@
 # Stickytab
 Better New Tab page designed for productivity and organization  
-<img src="banner.webp"/>
+<img src="banner.webp" width="100%"/>
 
 ## Setup
 Since this New Tab page was designed for computer productivity, it has been designed for a 16:9 screen ratio. It is not recommended to set this as a default New Tab page for any mobile device, or for any device with a screen that is not a 16:9 (landscape) ratio.  
@@ -8,7 +8,7 @@ Preview Stickytab on its <a href="https://kpoovakan.github.io/stickytab">main we
 * Chrome:  <a href="https://chromewebstore.google.com/detail/simple-new-tab-url/pkklffjkfmhpoiepobbldnadjflciinb"> Simple New Tab URL</a>  
 * Edge: <a href="https://microsoftedge.microsoft.com/addons/detail/custom-new-tab-url/oeibmbobgpgnbnlbaffdgebpeepfbnhi">Custom New Tab URL</a>  
 * Firefox: <a href="https://addons.mozilla.org/en-US/firefox/addon/new-tab-override/">New Tab Override</a>  
-We are not affiliated with these browsers or the creators of these extensions. If you choose to install an extension, enter <a href="https://kpoovakan.github.io/stickytab">Stickytab's main webpage URL</a> into the custom URL option. Then, make sure you choose the option to "focus on webpage" instead of on the URL bar when the page loads. The Webpage URL should <i>automatically be focused and selected</i> when you load Stickytab.  
+We are not affiliated with these browsers or the creators of these extensions. If you choose to install an extension, enter <a href="https://kpoovakan.github.io/stickytab">Stickytab's main webpage URL</a> into the custom URL option. Then, make sure you choose the option to "focus on webpage" instead of on the URL bar when the page loads. The Webpage Searchbar should <i>automatically be focused and selected</i> when you load Stickytab.  
 
 ## About Websearches   
 When Stickytab loads, you can immediately begin typing the <i>URL of any webpage</i>; upon loading Stickytab, it automatically jumps to the search for web addresses. Once the page loads, you can also press your keyboard's TAB key to <i>search the web</i> with a search engine of your choice. Pressing your ENTER key will open the web URL or search the web, depending on which searchbar you used.  
