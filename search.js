@@ -54,7 +54,7 @@ document.addEventListener("keydown", (event) => {
         if(show == "none") {
             webpage(document.getElementById("webpage"));
         } else if(tracker > searchItems) {
-            alert("none selected");
+            webpage(document.getElementById("webpage"));
         } else {
             let selection = document.getElementById("searchOption"+tracker).innerHTML;
             selection = siteList.indexOf(selection);
@@ -75,6 +75,7 @@ document.addEventListener("keydown", (event) => {
         } else if(tracker == searchItems) {
             globalThis.tracker = tracker + 1;
             highlightSelection(0);
+            document.getElementById("webpage").style.backgroundColor = "var(--colorAccent)";
         } else if(tracker > searchItems) {
             globalThis.tracker = 1;
             highlightSelection(1);
@@ -91,6 +92,7 @@ function highlightSelection(selectedTrue) {
     }
     if(selectedTrue) {
         document.getElementById("searchOption"+tracker).style.backgroundColor = "var(--colorAccent)";
+        document.getElementById("webpage").style.backgroundColor = "var(--colorForeground)";
     }
 }
 
