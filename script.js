@@ -3,7 +3,7 @@ let arrayDays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Sa
 let arrayMonths = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 
 window.onload = function() {
-    document.getElementById("checkJavaScript").remove();
+    //document.getElementById("checkJavaScript").remove();
     globalThis.searchEngine = localStorage.getItem("stickytabEngine");
     if(searchEngine == null) {
         globalThis.searchEngine = "Google";
