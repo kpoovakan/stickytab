@@ -50,12 +50,12 @@ body {
 .time {
     width: 100%;
     height: 24vh;
-    font-size: 20vh;
+    font-size: 10cqw;
     margin: 0px;
     overflow-x: auto;
     overflow-y: hidden;
     font-weight: 700;
-    transform: translateY(-6vh);
+    transform: translateY(-3cqw);
 }
 
 .searchgrid {
@@ -64,7 +64,7 @@ body {
 }
 
 .searchoption {
-    width: 10%;
+    width: max(10%, 45px);
     height: 4vh;
     font-size: 1.314vh;
     font-family: "Oregano", cursive;
@@ -451,4 +451,14 @@ the animation is not actually used. */
 .autocompleteOption:hover {
     background-color: var(--colorAccent) !important;
     cursor: pointer;
+}
+
+.noJavaScript {
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background-color: var(--colorBackground);
+    color: var(--colorForeground);
+    font-size: 31px;
 }

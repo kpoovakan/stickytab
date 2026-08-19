@@ -16,7 +16,6 @@
             <div style="display: block;">
                 <p id="date" class="date"></p>
                 <p id="time" class="time"></p>
-                <noscript><p id="checkJavaScript">If you would like to use Stickytab, you must enable JavaScript.</p></noscript>
                 <input class="webpage" type="search" id="webpage" name="webpage" autocomplete="off" onclick="this.select()" placeholder="type a WEBPAGE URL then press enter to open webpage" oninput="websearchAutocomplete()" autofocus /></input> <!-- onchange="webpage(this)" -->
                 <div class="searchgrid">
                     <input class="websearch" type="search" id="websearch" name="websearch" autocomplete="off" onclick="this.select()" placeholder="type a WEBSEARCH QUERY then press enter to search the web" onchange="websearch(this)" /></input> <!-- oninput -->
@@ -92,9 +91,12 @@
         <div class="searchAutocomplete" id="searchAutocomplete" style="display: none;" onmouseenter="autocompleteTransparent()" onmouseleave="highlightSelection()">
             <p>3.141592653589792384626433...</p>
         </div>
-        <dialog id="preventMobile" style="font-size:31px;">
-            <p>You need a 16:9 Landscape screen ratio to use Stickytab. Please use the correct screen ratio and refresh the page.</p>
+        <dialog id="preventMobile" autofocus tabindex="-1">
+            <p style="font-size: 31px;">Hmm... It looks like you don't have a 16:9 landscape screen ratio. This could ruin the aesthetics of Stickytab, and may cause some slight dysfunctionality.</p>
+            <button class="closeDialog" style="position: static;" onclick="closeMobileWarning()">open Stickytab anyway</button>
+            <p>You will not be warned again on this device.</p>
         </dialog>
+        <noscript><dialog open class="noJavaScript">Uh-oh, Stickytab isn't working! To fix this error, you'll need to enable JavaScript.</dialog></noscript>
         <script src="storage.js"></script>
         <script src="search.js" defer></script>
     </body>

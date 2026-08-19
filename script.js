@@ -3,7 +3,6 @@ let arrayDays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Sa
 let arrayMonths = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 
 window.onload = function() {
-    //document.getElementById("checkJavaScript").remove();
     globalThis.searchEngine = localStorage.getItem("stickytabEngine");
     if(searchEngine == null) {
         globalThis.searchEngine = "Google";
@@ -20,14 +19,16 @@ window.onload = function() {
     getDate();
     getTime();
     //window.setInterval(getTime(), 1000);
-    let windowWidth = window.innerWidth;
-    let windowHeight = window.innerHeight;
-    var ratio = windowWidth / 960;
-    var ratio = ratio * 473;
-    let ratioBig = windowHeight + 31;
-    let ratioSmall = windowHeight - 31;
-    if(!(ratioSmall < ratio && ratio < ratioBig)) {
-        document.getElementById("preventMobile").showModal();
+    if(window.localStorage.getItem("stickytabMobile") == null) {
+        let windowWidth = window.innerWidth;
+        let windowHeight = window.innerHeight;
+        var ratio = windowWidth / 960;
+        var ratio = ratio * 473;
+        let ratioBig = windowHeight + 31;
+        let ratioSmall = windowHeight - 31;
+        if(!(ratioSmall < ratio && ratio < ratioBig)) {
+            document.getElementById("preventMobile").showModal();
+        }
     }
 }
 
@@ -76,7 +77,7 @@ function getTime() {
     weekday = weekdays[weekday];
     let day = d.getDate();
     //let date = weekday + ", " + day + " " + month + " " + year;
-    let date = weekday + ", " + month + " " + day
+    let date = weekday + ", " + month + "&nbsp;" + day
     document.getElementById("date").innerHTML = date;
 }
 
@@ -190,4 +191,9 @@ function setDesmos(thisElement) {
     globalThis.desmosLink = thisElement.value;
     window.localStorage.setItem("stickytabDesmos", desmosLink);
     //location.reload();
+}
+
+function closeMobileWarning() {
+    document.getElementById("preventMobile").close();
+    window.localStorage.setItem("stickytabMobile", "1");
 }
