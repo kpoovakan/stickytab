@@ -138,6 +138,7 @@ body {
     padding-left: 1vw;
     width: 50%;
     margin: 0px;
+    word-break: break-all;
     a:link, a:visited, a:hover{
         color: var(--colorForeground);
         font-weight: 400;
@@ -150,6 +151,7 @@ body {
     padding-right: 1vw;
     width: 50%;
     margin: 0px;
+    word-break: break-all;
     a:link, a:visited, a:hover{
         color: var(--colorForeground);
         font-weight: 400;
@@ -266,6 +268,7 @@ dialog::backdrop {
     padding-left: 1vw;
     width: 50%;
     margin: 0px;
+    word-break: break-all;
     a:link, a:visited, a:hover{
         color: var(--colorBackground);
         font-weight: 400;
@@ -278,6 +281,7 @@ dialog::backdrop {
     padding-right: 1vw;
     width: 50%;
     margin: 0px;
+    word-break: break-all;
     a:link, a:visited, a:hover{
         color: var(--colorBackground);
         font-weight: 400;
