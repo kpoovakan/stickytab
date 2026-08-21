@@ -268,7 +268,6 @@ dialog::backdrop {
     padding-left: 1vw;
     width: 50%;
     margin: 0px;
-    word-break: break-all;
     a:link, a:visited, a:hover{
         color: var(--colorBackground);
         font-weight: 400;
@@ -281,7 +280,6 @@ dialog::backdrop {
     padding-right: 1vw;
     width: 50%;
     margin: 0px;
-    word-break: break-all;
     a:link, a:visited, a:hover{
         color: var(--colorBackground);
         font-weight: 400;
@@ -362,6 +360,14 @@ dialog::backdrop {
 
 .calculatorButtons:hover {
     cursor: pointer;
+    background-color: var(--colorBackground);
+    border: 2px solid var(--colorForeground);
+    color: var(--colorForeground);
+}
+
+.calculatorButtonsAccent:hover {
+    border: 2px solid var(--colorAccent);
+    color: var(--colorAccent);
 }
 
 .buttonRow {
@@ -465,4 +471,43 @@ the animation is not actually used. */
     background-color: var(--colorBackground);
     color: var(--colorForeground);
     font-size: 31px;
+}
+
+.calendarContainer {
+    display: block;
+    margin: 0px;
+    padding: 0px;
+    width: 100vw;
+    height: 100vh;
+}
+
+.calendarWeek {
+    display: flex;
+    width: 100%;
+    gap: 1.5vw;
+    margin-bottom: 1.5vw;
+}
+
+.calendarDay, .calendarDisabled {
+    height: 13vh;
+    width: 13vw;
+    display: block;
+    box-sizing: border-box !important;
+    margin: 0;
+    background-color: var(--colorForeground);
+    color: var(--colorBackground);
+    padding: 13px;
+    border-radius: 3px;
+    overflow: auto;
+}
+
+.calendarDisabled {
+    background-color: var(--colorBackground);
+    color: var(--colorForeground);
+    border: 2px solid var(--colorForeground);
+    box-sizing: border-box;
+}
+
+.calendarDay p {
+    margin: 0;
 }
