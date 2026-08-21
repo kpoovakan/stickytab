@@ -130,6 +130,7 @@ body {
     margin: 0px;
     font-size: 2.5vh;
     overflow: auto;
+    display: none;
 }
 
 .siteListLeft {
@@ -303,11 +304,11 @@ dialog::backdrop {
 
 .settingsButtons {
     display: block;
-    width: 5vw;
-    height: 5vw;
+    width: 3vw;
+    height: 3vw;
     background-color: var(--colorForeground);
     color: var(--colorBackground);
-    font-size: 1.314vw;
+    font-size: 1vw;
     box-sizing: border-box;
     border-radius: 3px;
     border: none;
@@ -315,7 +316,7 @@ dialog::backdrop {
     font-family: "Oregano", cursive;
     text-align: center;
     padding: auto;
-    letter-spacing: 1.5px;
+    /*letter-spacing: 1.5px;*/
     margin-left: 1vw;
 }
 
@@ -510,4 +511,24 @@ the animation is not actually used. */
 
 .calendarDay p {
     margin: 0;
+}
+
+.calendarIframe {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    border: none;
+    outline: none;
+}
+
+.calendarIframeContainer {
+    height: 80vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    padding-right: 1vw;
+    padding-bottom: 1vw;
+    overflow: hidden;
+    display: block;
+    box-sizing: border-box;
 }
