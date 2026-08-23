@@ -5,9 +5,11 @@ Better New Tab page designed for productivity and organization
 ## Setup
 Since this New Tab page was designed for computer productivity, it has been designed for a 16:9 screen ratio. It is not recommended to set this as a default New Tab page for any mobile device, or for any device with a screen that is not a 16:9 (landscape) ratio.  
 Preview Stickytab on its <a href="https://kpoovakan.github.io/stickytab">main webpage</a>. To install Stickytab as your New Tab page for your browser, you will need to use a browser extension. Recommended browser extensions:  
+
 * Chrome:  <a href="https://chromewebstore.google.com/detail/simple-new-tab-url/pkklffjkfmhpoiepobbldnadjflciinb"> Simple New Tab URL</a>  
 * Edge: <a href="https://microsoftedge.microsoft.com/addons/detail/custom-new-tab-url/oeibmbobgpgnbnlbaffdgebpeepfbnhi">Custom New Tab URL</a>  
 * Firefox: <a href="https://addons.mozilla.org/en-US/firefox/addon/new-tab-override/">New Tab Override</a>  
+
 We are not affiliated with these browsers or the creators of these extensions. If you choose to install an extension, enter <a href="https://kpoovakan.github.io/stickytab">Stickytab's main webpage URL</a> into the custom URL option. Then, make sure you choose the option to "focus on webpage" instead of on the URL bar when the page loads. The Webpage Searchbar should <i>automatically be focused and selected</i> when you load Stickytab.  
 
 ## About Websearches   
