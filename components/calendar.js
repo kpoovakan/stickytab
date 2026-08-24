@@ -43,11 +43,11 @@ function setupCalendar() {
     for (var i = 0; i < 7; i++) {
         if(i == firstDayInfo || i > firstDayInfo) {
             let thisDay = "<h1>"+dayNum.toString()+"</h1>";
-            let thisContainer = `<div class="calendarDay" id="month`+monthStage+`day`+dayNum+`">`;
+            let thisContainer = `<div class="calendarDay calendarCurrentMonth" id="month`+monthStage+`day`+dayNum+`">`;
             var thisWeek = thisWeek + thisContainer + thisDay + "</div>";
             var dayNum = dayNum + 1;
         } else {
-            var thisWeek = thisWeek + `<div class="calendarDisabled"></div>`;
+            var thisWeek = thisWeek + `<div class="calendarDisabled calendarCurrentDisabled"></div>`;
         }
     }
     firstWeek.innerHTML = thisWeek;
@@ -56,7 +56,11 @@ function setupCalendar() {
         let thisElement = document.getElementById("week"+i);
         var thisWeek = "";
         for (var i2 = 0; i2 < 7; i2++) {
-            let thisContainer = `<div class="calendarDay" id="month`+monthStage+`day`+dayNum+`">`;
+            if(monthStage == 0) {
+                var thisContainer = `<div class="calendarDay calendarCurrentMonth" id="month`+monthStage+`day`+dayNum+`">`;
+            } else {
+                var thisContainer = `<div class="calendarDay" id="month`+monthStage+`day`+dayNum+`">`;
+            }
             let thisDay = "<h1>"+dayNum.toString()+"</h1>";
             //var thisWeek = thisWeek + thisContainer + thisDay + "</div>";
             var dayNum = dayNum + 1;

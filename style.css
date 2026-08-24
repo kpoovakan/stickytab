@@ -581,4 +581,13 @@ the animation is not actually used. */
 .calendarMonthTop {
     top: 0;
     left: 0;
+    color: var(--colorAccent);
+}
+
+.calendarCurrentMonth {
+    background-color: var(--colorAccent);
+}
+
+.calendarCurrentDisabled {
+    border-color: var(--colorAccent);
 }
