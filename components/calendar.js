@@ -1,10 +1,12 @@
 "use strict";
-window.addEventListener("load", function() {
+window.addEventListener("load", async function() {
     setupDays();
     //if(!(daysToSetup % 7 == 0)) {}
     setupCalendar();
     adjustSize();
     setupInfo();
+    displayMonths();
+    await getCalendarData();
 });
 
 function setupDays() {
@@ -14,10 +16,12 @@ function setupDays() {
     let leapyear = year % 4;
     globalThis.daysCurrent = daysInMonth(month, leapyear);
     month = month + 1;
+    month = endOfYear(month);
     globalThis.daysNext = daysInMonth(month, leapyear);
     globalThis.daysToSetup = daysCurrent + daysNext;
-    globalThis.firstDay = year + "-" + month + "-01";
-    globalThis.firstDay = new Date(firstDay);
+    month = d.getMonth();
+    globalThis.firstDay = year + ", " + month + ", 1";
+    globalThis.firstDay = new Date(year, month, "1");
     globalThis.firstDayInfo = firstDay.getDay();
 }
 
@@ -38,7 +42,7 @@ function setupCalendar() {
     let firstWeek = document.getElementById("week0");
     for (var i = 0; i < 7; i++) {
         if(i == firstDayInfo || i > firstDayInfo) {
-            let thisDay = "<p>"+dayNum.toString()+"</p>";
+            let thisDay = "<h1>"+dayNum.toString()+"</h1>";
             let thisContainer = `<div class="calendarDay" id="month`+monthStage+`day`+dayNum+`">`;
             var thisWeek = thisWeek + thisContainer + thisDay + "</div>";
             var dayNum = dayNum + 1;
@@ -53,7 +57,7 @@ function setupCalendar() {
         var thisWeek = "";
         for (var i2 = 0; i2 < 7; i2++) {
             let thisContainer = `<div class="calendarDay" id="month`+monthStage+`day`+dayNum+`">`;
-            let thisDay = "<p>"+dayNum.toString()+"</p>";
+            let thisDay = "<h1>"+dayNum.toString()+"</h1>";
             //var thisWeek = thisWeek + thisContainer + thisDay + "</div>";
             var dayNum = dayNum + 1;
             if(monthStage == 0) {
@@ -85,7 +89,7 @@ function setupCalendar() {
 function adjustSize() {
     for(var i = 0; i < 13; i++) {
         let thisWeek = document.getElementById("week"+i).innerHTML;
-        if(thisWeek == "") {
+        if(thisWeek == "" || thisWeek == null) {
             var lastWeek = i - 1;
             var i = 13;
         }
@@ -107,4 +111,40 @@ function adjustSize() {
 
 function setupInfo() {
     return;
+}
+
+function displayMonths() {
+    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    let thisMonth = d.getMonth();
+    thisMonth = months[thisMonth];
+    document.getElementById("monthCurrent").innerHTML = thisMonth;
+    thisMonth = d.getMonth();
+    thisMonth = thisMonth + 1;
+    thisMonth = endOfYear(thisMonth);
+    thisMonth = months[thisMonth];
+    document.getElementById("monthNext").innerHTML = thisMonth;
+}
+
+async function getCalendarData() {
+    globalThis.calendarData = window.localStorage.getItem("stickytabCalendar");
+    if(calendarData === null) {
+        return;
+    }
+    globalThis.calendarData = await JSON.parse(calendarData);
+    for (let i = 0; i < globalThis.calendarData.length; i++) {
+        let thisKey = Object.keys(globalThis.calendarData)[i];
+        let thisValue = globalThis.calendarData[thisKey];
+
+        let thisContent = document.getElementById(thisKey).innerHTML;
+        thisContent = thisContent + "<p>" + thisValue + "</p>";
+        document.getElementById(thisKey).innerHTML = thisContent;
+    }
+}
+
+function endOfYear(month) {
+    if(month == 12) {
+        return 0;
+    } else {
+        return month;
+    }
 }

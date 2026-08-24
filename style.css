@@ -479,6 +479,7 @@ the animation is not actually used. */
     padding: 0px;
     width: 100vw;
     height: 100vh;
+    position: relative;
 }
 
 .calendarWeek {
@@ -499,6 +500,7 @@ the animation is not actually used. */
     padding: 13px;
     border-radius: 3px;
     overflow: auto;
+    position: relative;
 }
 
 .calendarDisabled {
@@ -510,6 +512,17 @@ the animation is not actually used. */
 
 .calendarDay p {
     margin: 0;
+}
+
+.calendarDay h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    margin: 0 auto;
+    color: color-mix(in oklab, #00000000 71%, var(--colorBackground));
+    font-size: 9cqw;
 }
 
 .calendarIframe {
@@ -530,4 +543,42 @@ the animation is not actually used. */
     overflow: hidden;
     display: block;
     box-sizing: border-box;
+}
+
+.calendarMonthTop, .calendarMonthBottom {
+    position: absolute;
+    margin: 0;
+    font-size: 8cqw;
+    color: var(--colorForeground);
+    -webkit-text-stroke: 13px var(--colorBackground);
+    paint-order: stroke fill;
+}
+
+.calendarMonthTop:hover, .calendarMonthBottom:hover {
+    animation: 0.314s dissolveMonth;
+    animation-fill-mode: forwards;
+    cursor: default;
+}
+
+@keyframes dissolveMonth {
+    from {
+        color: var(--colorForeground);
+        -webkit-text-stroke: 13px var(--colorBackground);
+        paint-order: stroke fill;
+    }
+    to {
+        color: transparent;
+        -webkit-text-stroke: 0px transparent;
+        paint-order: stroke fill;
+    }
+}
+
+.calendarMonthBottom {
+    bottom: 0;
+    right: 0;
+}
+
+.calendarMonthTop {
+    top: 0;
+    left: 0;
 }
