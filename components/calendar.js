@@ -131,18 +131,44 @@ function displayMonths() {
 
 async function getCalendarData() {
     globalThis.calendarData = window.localStorage.getItem("stickytabCalendar");
-    if(calendarData === null) {
+    globalThis.includeDayNum = window.localStorage.getItem("stickytabCalendarIncludeDayNum");
+    if(globalThis.includeDayNum === null) {
+        globalThis.includeDayNum = 1;
+    } else {
+        globalThis.includeDayNum = Number(includeDayNum);
+    }
+    if(globalThis.calendarData === null) {
         return;
     }
     globalThis.calendarData = await JSON.parse(calendarData);
-    for (let i = 0; i < globalThis.calendarData.length; i++) {
+    let dataItems = Object.keys(globalThis.calendarData).length;
+    if(dataItems > 2) {
+        var monthThis = d.getMonth();
+        var monthNext = monthThis + 1;
+        for (let i = 0; i < dataItems; i++) {
+            var thisItem = Object.keys(globalThis.calendarData)[i];
+            if(!(thisItem == monthThis || thisItem == monthNext)) {
+                let entries = Object.entries(globalThis.calendarData);
+                entries.splice(i, 1);
+                globalThis.calendarData = Object.fromEntries(entries);
+            }
+        }
+    }
+    console.log(globalThis.calendarData);
+    //first month
+    let frozen = d.getMonth();
+    pushToCalendar(frozen, 0, includeDayNum);
+    //second month
+    frozen = frozen + 1;
+    pushToCalendar(frozen, 1, includeDayNum);
+    /*for (let i = 0; i < globalThis.calendarData.length; i++) {
         let thisKey = Object.keys(globalThis.calendarData)[i];
         let thisValue = globalThis.calendarData[thisKey];
 
         let thisContent = document.getElementById(thisKey).innerHTML;
         thisContent = thisContent + "<p>" + thisValue + "</p>";
         document.getElementById(thisKey).innerHTML = thisContent;
-    }
+    }*/
 }
 
 function endOfYear(month) {
@@ -150,5 +176,27 @@ function endOfYear(month) {
         return 0;
     } else {
         return month;
+    }
+}
+
+function setCalendarData(data) {
+    let pie = JSON.stringify(data);
+    window.localStorage.setItem("stickytabCalendar", pie);
+}
+
+function pushToCalendar(monthIndex, setupIndex, includeDayNum) {
+    var dataCurrent = globalThis.calendarData[monthIndex];
+    console.log(dataCurrent);
+    let rotisserie = Object.keys(dataCurrent).length;
+    for (let i = 0; i < rotisserie; i++) {
+        let thisKey = Object.keys(dataCurrent)[i];
+        let thisValue = dataCurrent[thisKey];
+        if(includeDayNum) {
+            var thisContent = document.getElementById("month0day"+thisKey).innerHTML;
+        } else {
+            var thisContent = "";
+        }
+        var thisContent = thisContent + "<p class='calendarDayInfoScroll calendarDayInfo"+setupIndex+"'>" + thisValue + "</p>";
+        document.getElementById("month"+setupIndex+"day"+thisKey).innerHTML = thisContent;
     }
 }

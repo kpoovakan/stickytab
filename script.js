@@ -161,12 +161,20 @@ function editSettings() {
     document.getElementById("settings").showModal();
 }
 
+function editCalendar() {
+    document.getElementById("calendarSettings").showModal();
+}
+
 function closeSiteEditor() {
     document.getElementById("editSites").close();
 }
 
 function closeSettingsEditor() {
     document.getElementById("settings").close();
+}
+
+function closeCalendarEditor() {
+    document.getElementById("calendarSettings").close();
 }
 
 function openHelp() {

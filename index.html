@@ -36,6 +36,7 @@
                 <iframe src="components/calendar.html" class="calendarIframe"></iframe>
             </div>
             <div style="width: 100%; display: flex; justify-content: flex-end;">
+                <button class="settingsButtons" onclick="editCalendar()">calendar settings</button>
                 <button class="settingsButtons" onclick="editSites()">saved sites</button>
                 <button class="settingsButtons" onclick="editSettings()">settings</button>
                 <button class="settingsButtons" style="margin-right: 1vw;" onclick="openHelp()">help</button>
@@ -90,6 +91,13 @@
                 </p>
             </div>
             <button class="closeDialog" onclick="closeSettingsEditor()">save changes and close</button>
+        </dialog>
+        <dialog id="calendarSettings">
+            <div style="display: inline; font-size: 2vw;">
+                <p>Maaf, ini tidak selesai.</p>
+                <p>Sorry, this feature is still in production. Check back again later!</p>
+                <button class="closeDialog" onclick="closeCalendarEditor()">save changes and close</button>
+            </div>
         </dialog>
         <div class="searchAutocomplete" id="searchAutocomplete" style="display: none;" onmouseenter="autocompleteTransparent()" onmouseleave="highlightSelection()">
             <p>3.141592653589792384626433...</p>

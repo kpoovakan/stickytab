@@ -307,7 +307,7 @@ dialog::backdrop {
     height: 3vw;
     background-color: var(--colorForeground);
     color: var(--colorBackground);
-    font-size: 1vw;
+    font-size: 0.8vw;
     box-sizing: border-box;
     border-radius: 3px;
     border: none;
@@ -512,6 +512,7 @@ the animation is not actually used. */
 
 .calendarDay p {
     margin: 0;
+    font-weight: 600;
 }
 
 .calendarDay h1 {
@@ -590,4 +591,24 @@ the animation is not actually used. */
 
 .calendarCurrentDisabled {
     border-color: var(--colorAccent);
+}
+
+.calendarDayInfoWrap {
+    word-break: break-all;
+}
+
+.calendarDayInfoScroll {
+    word-break: keep-all;
+}
+
+.calendarDayInfo0 {
+    color: var(--colorBackground);
+    -webkit-text-stroke: 13px var(--colorAccent);
+    paint-order: stroke fill;
+}
+
+.calendarDayInfo1 {
+    color: var(--colorBackground);
+    -webkit-text-stroke: 13px var(--colorForeground);
+    paint-order: stroke fill;
 }
