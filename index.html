@@ -8,7 +8,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Oregano:ital@0;1&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="style.css">
-        <script src="script.js"></script>
+        <script src="script.js" defer></script>
     </head>
     <body>
         <iframe src="components/stickies.html" class="stickies"></iframe>
@@ -32,11 +32,11 @@
             <div class="siteList" style="display: none;">
                 <table id="siteList" width="100%;" style="border-collapse: collapse;"></table>
             </div>
-            <div class="calendarIframeContainer">
+            <div class="calendarIframeContainer" onclick="editCalendar()">
                 <iframe src="components/calendar.html" class="calendarIframe"></iframe>
             </div>
             <div style="width: 100%; display: flex; justify-content: flex-end;">
-                <button class="settingsButtons" onclick="editCalendar()">calendar settings</button>
+                <button class="settingsButtons" onclick="editCalendar()">calendar</button>
                 <button class="settingsButtons" onclick="editSites()">saved sites</button>
                 <button class="settingsButtons" onclick="editSettings()">settings</button>
                 <button class="settingsButtons" style="margin-right: 1vw;" onclick="openHelp()">help</button>
@@ -93,9 +93,28 @@
             <button class="closeDialog" onclick="closeSettingsEditor()">save changes and close</button>
         </dialog>
         <dialog id="calendarSettings">
-            <div style="display: inline; font-size: 2vw;">
-                <p>Maaf, ini tidak selesai.</p>
-                <p>Sorry, this feature is still in production. Check back again later!</p>
+            <div style="display: flex; font-size: 1.314vw; height: 100%; width: 100%; gap: 10%; flex: 0 0 20%;">
+                <div style="display: block; height: 100%;">
+                    <div style="height: 88%; border: 31px solid var(--colorBackground); margin: 6%;">
+                        <iframe src="components/calendar.html" class="calendarIframe" id="calendarSettingsPreview"></iframe>
+                    </div>
+                </div>
+                <div>
+                    <p style="text-align: right; font-size: 2vw;">add event</p>
+                    <p>select month: 
+                        <select class="settingsSelect" width="auto" id="calendarSetMonth">
+                            <option value="onload" disabled selected hidden>last month (kidding!)</option>
+                            <option value="0">this month</option>
+                            <option value="1">next month</option>
+                        </select>
+                    </p>
+                    <p>enter date: 
+                        <input type="number" id="calendarSetDate" min="1" max="31" class="settingsSelect" placeholder="27">
+                    </p>
+                </div>
+                <div>
+                    <p style="text-align: right; font-size: 2vw;">remove event</p>
+                </div>
                 <button class="closeDialog" onclick="closeCalendarEditor()">save changes and close</button>
             </div>
         </dialog>

@@ -205,3 +205,13 @@ function closeMobileWarning() {
     document.getElementById("preventMobile").close();
     window.localStorage.setItem("stickytabMobile", "1");
 }
+
+/* document.getElementById("calendarSettingsPreview").addEventListener("load", function() {
+    const iframe = document.getElementById("calendarSettingsPreview");
+    const doc = iframe.contentDocument || iframe.contentWindow.document;
+    const style = doc.createElement("style");
+    style.textContent = `body {
+        background-color: var(--colorForeground);
+    }`;
+    doc.head.appendChild(style);
+}); */
