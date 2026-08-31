@@ -301,7 +301,7 @@ dialog::backdrop {
     }
 }
 
-.settingsButtons {
+.settingsButtons /*close settings*/ {
     display: block;
     width: 3vw;
     height: 3vw;
@@ -393,7 +393,7 @@ dialog::backdrop {
     text-align: right;
 }
 
-input[type="search"]::-webkit-search-cancel-button {
+input::-webkit-search-cancel-button {
   -webkit-appearance: none;
   display: none;
 }
@@ -611,4 +611,33 @@ the animation is not actually used. */
     color: var(--colorBackground);
     -webkit-text-stroke: 13px var(--colorForeground);
     paint-order: stroke fill;
+}
+
+.settingsInput {
+    background-color: var(--colorBackground);
+    color: var(--colorForeground);
+    font-family: "Oregano", cursive;
+    font-size: 1.5vw;
+    padding: 1vh;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+}
+
+.settingsButton /*actual button*/{
+    background-color: var(--colorBackground);
+    color: var(--colorForeground);
+    font-size: 1.5vw;
+    padding: 1vh;
+    outline: none;
+    box-sizing: border-box;
+    border: 3px solid var(--colorBackground);
+    border-radius: 3px;
+    font-family: "Oregano", cursive;
+}
+
+.settingsButton:hover {
+    cursor: pointer;
+    color: var(--colorBackground);
+    background-color: var(--colorForeground);
 }

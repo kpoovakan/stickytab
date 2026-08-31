@@ -155,6 +155,7 @@ async function getCalendarData() {
         }
     }
     console.log(globalThis.calendarData);
+    setCalendarData(globalThis.calendarData);
     //first month
     let frozen = d.getMonth();
     pushToCalendar(frozen, 0, includeDayNum);
@@ -186,7 +187,7 @@ function setCalendarData(data) {
 
 function pushToCalendar(monthIndex, setupIndex, includeDayNum) {
     var dataCurrent = globalThis.calendarData[monthIndex];
-    console.log(dataCurrent);
+    //console.log(dataCurrent);
     let rotisserie = Object.keys(dataCurrent).length;
     for (let i = 0; i < rotisserie; i++) {
         let thisKey = Object.keys(dataCurrent)[i];

@@ -215,3 +215,85 @@ function closeMobileWarning() {
     }`;
     doc.head.appendChild(style);
 }); */
+
+function setCalendarData(data) {
+    let pie = JSON.stringify(data);
+    window.localStorage.setItem("stickytabCalendar", pie);
+}
+
+function calendarAddEvent() {
+    var calendarData = window.localStorage.getItem("stickytabCalendar");
+    var calendarData = JSON.parse(calendarData);
+    const d = new Date();
+    var month = document.getElementById("calendarSetMonth").value;
+    var month = Number(month);
+    if(month == "onload") {
+        alert("why are you setting this event to take place... last month??");
+        return;
+    } else {
+        var monthIndex = d.getMonth();
+        var monthIndex = Number(monthIndex);
+        var monthIndex = monthIndex + month;
+    }
+    const date = document.getElementById("calendarSetDate").value;
+    var daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    let leapyear = d.getFullYear();
+    leapyear = leapyear % 4;
+    if(leapyear == 0) { // ironically, the value for false means true due to how the modulus works
+        daysInMonth[1] = 29;
+    }
+    let monthDays = daysInMonth[monthIndex];
+    if(!(date > 0 && date < monthDays + 1)) {
+        alert("looks like this date is nonexistent...");
+        return;
+    }
+    const details = document.getElementById("calendarSetDetails").value;
+    if(details == "") {
+        alert("but... what's happening on that day?");
+        return;
+    }
+    /*if(calendarData == null || calendarData == undefined) {
+        let currentMonth = d.getMonth();
+        let nextMonth = Number(currentMonth);
+        nextMonth = nextMonth + 1;
+        var calendarData = `{`+currentMonth+`:{},`+nextMonth+`:{}}`;
+        console.log(calendarData);
+    }
+    console.log(calendarData[monthIndex]);
+    if(calendarData[monthIndex] == null || calendarData[monthIndex] == undefined) {
+        calendarData[monthIndex] = {};
+    }*/
+    if(calendarData == null || calendarData == undefined) {
+        let currentMonth = d.getMonth();
+        let nextMonth = Number(currentMonth);
+        nextMonth = nextMonth + 1;
+        var thisData = new Object({});
+        thisData[currentMonth] = new Object({});
+        thisData[nextMonth] = new Object({});
+        var calendarData = thisData;
+        console.log("level 1");
+    }
+    var thisGroup = calendarData[monthIndex];
+    var checkLength = Object.keys(calendarData[monthIndex]).length;
+    if(thisGroup == null || thisGroup == undefined || checkLength == 0) {
+        var thisData = new Object({});
+        calendarData[monthIndex] = thisData;
+        console.log("level 2");
+    }
+    var thisDay = calendarData[monthIndex][date];
+    if(thisDay == undefined || thisDay == null) {
+        calendarData[monthIndex][date] = details;
+        console.log("level 3");
+        setCalendarData(calendarData);
+    } else {
+        if(!(Array.isArray(thisDay))) {
+            var thisDay = new Array(thisDay);
+        }
+        thisDay.push(details);
+        calendarData[monthIndex][date] = thisDay;
+        setCalendarData(calendarData);
+    }
+}
+
+// note to self: add things to calendar.js to deal with arrays of multiple calendar events for a single day
+// note to self: add thing to reload page or update calendar after adding event
