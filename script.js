@@ -342,4 +342,9 @@ function calendarEventsToRemove() {
     }
 }
 
-// work on includeDayNum
+function calendarDayNum(thisElement) {
+    let thisValue = thisElement.value;
+    thisValue = Number(thisValue);
+    window.localStorage.setItem("stickytabCalendarIncludeDayNum", thisValue);
+    location.reload();
+}

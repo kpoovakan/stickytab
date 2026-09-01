@@ -89,6 +89,12 @@
                         <option value="notebook">Desmos notebook</option>
                     </select>
                 </p>
+                <p>include date number behind calendar events: 
+                    <select class="settingsSelect" width="auto" onchange="calendarDayNum(this)">
+                        <option value="1">true</option>
+                        <option value="0">false</option>
+                    </select>
+                </p>
             </div>
             <button class="closeDialog" onclick="closeSettingsEditor()">save changes and close</button>
         </dialog>
