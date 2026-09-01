@@ -641,3 +641,7 @@ the animation is not actually used. */
     color: var(--colorBackground);
     background-color: var(--colorForeground);
 }
+
+.settingsCalendar {
+    font-size: 1.1314vw;
+}

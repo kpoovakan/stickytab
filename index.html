@@ -93,31 +93,42 @@
             <button class="closeDialog" onclick="closeSettingsEditor()">save changes and close</button>
         </dialog>
         <dialog id="calendarSettings">
-            <div style="display: flex; font-size: 1.314vw; height: 100%; width: 100%; gap: 10%; flex: 0 0 20%;">
+            <div style="display: flex; font-size: 1.314vw; height: 100%; width: 100%; gap: 5%; flex: 0 0 20%;">
                 <div style="display: block; height: 100%;">
-                    <div style="height: 88%; border: 31px solid var(--colorBackground); margin: 6%;">
+                    <div style="height: 99%; border: 31px solid var(--colorBackground); margin: 0; box-sizing: border-box;">
                         <iframe src="components/calendar.html" class="calendarIframe" id="calendarSettingsPreview"></iframe>
                     </div>
                 </div>
                 <div>
-                    <p style="text-align: right; font-size: 2vw;">add event</p>
+                    <p style="text-align: left; font-size: 2vw;">add event</p>
                     <p>select month: 
-                        <select class="settingsSelect" width="auto" id="calendarSetMonth">
+                        <select class="settingsSelect settingsCalendar" width="auto" id="calendarSetMonth" autocomplete="off">
                             <option value="onload" disabled selected hidden>last month (kidding!)</option>
                             <option value="0">this month</option>
                             <option value="1">next month</option>
                         </select>
                     </p>
                     <p>enter date: 
-                        <input type="number" id="calendarSetDate" min="1" max="31" class="settingsSelect" placeholder="27">
+                        <input type="number" id="calendarSetDate" min="1" max="31" class="settingsSelect settingsCalendar" placeholder="27" autocomplete="off">
                     </p>
                     <p>event title: 
-                        <input id="calendarSetDetails" class="settingsInput" placeholder="Mariposa's birthday">
+                        <input id="calendarSetDetails" class="settingsInput settingsCalendar" placeholder="Mariposa's birthday" autocomplete="off">
                     </p>
-                    <button onclick="calendarAddEvent()" class="settingsButton">add this event to calendar</button>
+                    <button onclick="calendarAddEvent()" class="settingsButton settingsCalendar">add this event to calendar</button>
                 </div>
                 <div>
-                    <p style="text-align: right; font-size: 2vw;">remove event</p>
+                    <p style="text-align: left; font-size: 2vw;">remove event</p>
+                    <p>month to remove from: 
+                        <select class="settingsSelect settingsCalendar" width="auto" id="calendarRemoveMonth" onchange="calendarEventsToRemove()" autocomplete="off">
+                            <option value="onload" disabled selected hidden>13th month of the year (kidding!)</option>
+                            <option value="0">this month</option>
+                            <option value="1">next month</option>
+                        </select>
+                    </p>
+                    <p>date for event to remove: 
+                        <input type="number" id="calendarRemoveDate" min="1" max="31" class="settingsSelect settingsCalendar" placeholder="25" onchange="calendarEventsToRemove()" autocomplete="off">
+                    </p>
+                    <p id="calendarRemoveSpecify">please enter all requested data...</p>
                 </div>
                 <button class="closeDialog" onclick="closeCalendarEditor()">save changes and close</button>
             </div>

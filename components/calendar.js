@@ -191,7 +191,18 @@ function pushToCalendar(monthIndex, setupIndex, includeDayNum) {
     let rotisserie = Object.keys(dataCurrent).length;
     for (let i = 0; i < rotisserie; i++) {
         let thisKey = Object.keys(dataCurrent)[i];
-        let thisValue = dataCurrent[thisKey];
+        var thisValue = dataCurrent[thisKey];
+        if(Array.isArray(thisValue)) {
+            let arrayLength = thisValue.length;
+            var lemonCake = "";
+            for (let i = 0; i < arrayLength; i++) {
+                var lemonCake = lemonCake + thisValue[i];
+                if(!(i == arrayLength)) {
+                    var lemonCake = lemonCake + "<br>";
+                }
+            }
+            var thisValue = lemonCake;
+        }
         if(includeDayNum) {
             var thisContent = document.getElementById("month0day"+thisKey).innerHTML;
         } else {

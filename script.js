@@ -293,7 +293,53 @@ function calendarAddEvent() {
         calendarData[monthIndex][date] = thisDay;
         setCalendarData(calendarData);
     }
+    location.reload();
 }
 
-// note to self: add things to calendar.js to deal with arrays of multiple calendar events for a single day
-// note to self: add thing to reload page or update calendar after adding event
+function calendarRemoveEvent(thisElement, month, date) {
+    var calendarData = window.localStorage.getItem("stickytabCalendar");
+    var calendarData = JSON.parse(calendarData);
+    var thisData = calendarData[month][date];
+    if(Array.isArray(thisData)) {
+        var thisEvent = thisElement.innerHTML;
+        var thisIndex = thisData.indexOf(thisEvent);
+        thisData.splice(thisIndex, 1);
+        calendarData[month][date] = thisData;
+    } else {
+        delete calendarData[month][date];
+    }
+    setCalendarData(calendarData);
+    location.reload();
+}
+
+function calendarEventsToRemove() {
+    const monthEntered = document.getElementById("calendarRemoveMonth").value;
+    const dateEntered = document.getElementById("calendarRemoveDate").value;
+    const options = document.getElementById("calendarRemoveSpecify");
+    if(monthEntered == "onload" || dateEntered == "") {
+        return;
+    }
+    var calendarData = window.localStorage.getItem("stickytabCalendar");
+    var calendarData = JSON.parse(calendarData);
+    const d = new Date();
+    var month = d.getMonth();
+    var month = month + Number(monthEntered);
+    var thisData = calendarData[month][dateEntered];
+    if(thisData == undefined) {
+        options.innerHTML = "no events on this date...";
+        return;
+    }
+    const prompt = "which event do you wish to remove? <br>";
+    const buttonBase = `<button onclick="calendarRemoveEvent(this, '`+month+`', '`+dateEntered+`')" class="settingsButton settingsCalendar" style="margin-right: 13px;">`;
+    if(Array.isArray(thisData)) {
+        options.innerHTML = prompt;
+        let arrayLength = thisData.length;
+        for (let i = 0; i < arrayLength; i++) {
+            options.innerHTML = options.innerHTML + buttonBase + thisData[i] + "</button>";
+        }
+    } else {
+        options.innerHTML = prompt + buttonBase + thisData + "</button>";
+    }
+}
+
+// work on includeDayNum
