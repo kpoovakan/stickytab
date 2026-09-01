@@ -133,7 +133,7 @@ async function getCalendarData() {
     globalThis.calendarData = window.localStorage.getItem("stickytabCalendar");
     globalThis.includeDayNum = window.localStorage.getItem("stickytabCalendarIncludeDayNum");
     if(globalThis.includeDayNum === null) {
-        globalThis.includeDayNum = 1;
+        globalThis.includeDayNum = 0;
     } else {
         globalThis.includeDayNum = Number(includeDayNum);
     }
