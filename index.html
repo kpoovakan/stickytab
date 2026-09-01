@@ -64,11 +64,12 @@
         <dialog id="settings">
             <div style="display: inline; font-size: 2vw;">
                 <p>time format: 
-                <select class="settingsSelect" width="auto" onchange="setTimeFormat(this)">
-                    <option value="onload" disabled selected hidden>pick new time format</option>
-                    <option value="12">12 HOUR</option>
-                    <option value="24">24 HOUR</option>
-                </select></p>
+                    <select class="settingsSelect" width="auto" onchange="setTimeFormat(this)">
+                        <option value="onload" disabled selected hidden>pick new time format</option>
+                        <option value="12">12 HOUR</option>
+                        <option value="24">24 HOUR</option>
+                    </select>
+                //this is the time format for the clock.</p>
                 <p>default search engine: 
                     <select class="settingsSelect" width="auto" onchange="setSearchEngine(this)">
                         <option value="onload" disabled selected hidden>pick new engine</option>
@@ -76,8 +77,8 @@
                         <option value="Google">Google</option>
                         <option value="Bing">Bing</option>
                     </select>
-                </p>
-                <p>Desmos button opens: 
+                // this is the default search engine for websearches.</p>
+                <p>Desmos button: 
                     <select class="settingsSelect" width="auto" onchange="setDesmos(this)">
                         <option value="onload" disabled selected hidden>pick new Desmos link</option>
                         <option value="scientific">scientific calculator</option>
@@ -88,14 +89,14 @@
                         <option value="3d">3D calculator</option>
                         <option value="notebook">Desmos notebook</option>
                     </select>
-                </p>
+                // the Desmos button on the calculator will open this Desmos link.</p>
                 <p>include date number behind calendar events: 
                     <select class="settingsSelect" width="auto" onchange="calendarDayNum(this)">
                         <option value="onload" disabled selected hidden>pick setting</option>
                         <option value="0">false</option>
                         <option value="1">true</option>
                     </select>
-                </p>
+                // this is a setting for including the date as a number on days that have events. it looks better but decreases readability.</p>
             </div>
             <button class="closeDialog" onclick="closeSettingsEditor()">save changes and close</button>
         </dialog>
