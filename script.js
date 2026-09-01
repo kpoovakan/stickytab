@@ -304,6 +304,10 @@ function calendarRemoveEvent(thisElement, month, date) {
         var thisEvent = thisElement.innerHTML;
         var thisIndex = thisData.indexOf(thisEvent);
         thisData.splice(thisIndex, 1);
+        if(thisData.length == 1) {
+            let lemonCake = thisData[0];
+            thisData = lemonCake;
+        }
         calendarData[month][date] = thisData;
     } else {
         delete calendarData[month][date];
