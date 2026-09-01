@@ -3,7 +3,7 @@ Better New Tab page designed for productivity and organization
 <img src="banner.webp" width="100%"/>
 
 ## Setup
-Since this New Tab page was designed for computer productivity, it has been designed for a 16:9 screen ratio. It is not recommended to set this as a default New Tab page for any mobile device, or for any device with a screen that is not a 16:9 (landscape) ratio.  
+Since this New Tab page was designed for computer productivity, it has been designed for a 16:9 screen ratio. If Stickytab is used with any mobile device, or used with a device that does not have the 16:9 screen ratio, aesthetics may be negatively affected or dysfunctionality may occur.    
 Preview Stickytab on its <a href="https://kpoovakan.github.io/stickytab">main webpage</a>. To install Stickytab as your New Tab page for your browser, you will need to use a browser extension. Recommended browser extensions:  
 
 * Chrome:  <a href="https://chromewebstore.google.com/detail/simple-new-tab-url/pkklffjkfmhpoiepobbldnadjflciinb"> Simple New Tab URL</a>  
@@ -19,8 +19,9 @@ For example, I save [github.com](https://github.com) to my saved sites. Then, wh
 
 ## Stickytab's Other Features
 * [Stickies](#stickies): sticky notes, saved locally in your browser, on the left-hand side
-* [Saved Sites](#saving-sites): sites saved locally to your browser; like bookmarks, but displayed with one-click access
+* [Saved Sites](#saving-sites): sites saved locally to your browser
 * [Saved Sites Search](#about-websearches): quickly search through and open saved sites through a popup above the web address search bar
+* [Calendar](#calendar): view a calendar on the right-hand side with saved events for two months
 * Date and time at the top
 * Upon loading the page, automatic jumping to a default search bar for web addresses
 * Upon loading the page, pressing the TAB key will jump to the search bar for web searches
@@ -33,12 +34,14 @@ For example, I save [github.com](https://github.com) to my saved sites. Then, wh
 ## Stickies
 Stickies are the main feature of Stickytab. The sticky manager, which displays the stickies, is located on the left-hand side of the page. The buttons for adding, editing, and deleting stickies are in the bottom left corner, at the bottom of the sticky manager. Twelve stickies can be displayed on the sticky manager; additional stickies can be viewed if necessary by clicking the corresponding button.
 
+## Calendar
+There is a calendar on the right-hand side of Stickytab. Events can be added to or removed from the calendar using the button at the bottom right corner of Stickytab. The calendar displays the current month and the next month. Calendar events are stored locally in your browser, and are deleted after the month passes. On the calendar, the date of a calendar event is not shown with the event by default. This preference can be changed through the [settings](#settings).
+
 ## Saving Sites
-Using the button at the bottom right corner, a settings area can be opened to create (and add to or delete from) a list of custom saved sites. This list is stored locally in your browser, and is saved throughout page reloads. Saved sites are displayed on the right-hand side, providing useful shortcuts to frequently visited sites. Only people with valid permissions can access your local browser storage, and therefore only people with valid permissions can access your custom list of saved sites.  
+Using the button at the bottom right corner, a settings area can be opened to create (and add to or delete from) a list of custom saved sites. This list is stored locally in your browser, and is saved throughout page reloads. Only people with valid permissions can access your local browser storage, and therefore only people with valid permissions can access your custom list of saved sites. This list of saved sites is used to power your webpage [websearches](#about-websearches).
 
 ## Settings
-There is a separate settings button in the bottom right corner of Stickytab. You can use the settings to set your preferences for the time format, default search engine, and which Desmos page that will be opened when you press the corresponding calculator button.
+There is a separate settings button in the bottom right corner of Stickytab. You can use the settings to set your preferences for the time format, default search engine, calendar event aesthetics, and which Desmos page that will be opened when you press the corresponding calculator button.
 
 ## Credits and Licensing
-The main font for Stickytab is called <a href="https://github.com/google/fonts/tree/main/ofl/oregano">Oregano</a>. The main code for Stickytab's sticky manager was created using a code editor known as <a href="https://turbowarp.org">Turbowarp</a>. Stickytab is licensed under the <a href="https://github.com/kpoovakan/stickytab?tab=BSL-1.0-1-ov-file#">Boost Software License 1.0</a>.  
-Similar tools and code projects can be found on the author's website at [kpoovakan.github.io](https://kpoovakan.github.io).
+The main font for Stickytab is called <a href="https://github.com/google/fonts/tree/main/ofl/oregano">Oregano</a>. The main code for Stickytab's sticky manager was created using a code editor known as <a href="https://turbowarp.org">Turbowarp</a>. Stickytab is licensed under the <a href="https://github.com/kpoovakan/stickytab?tab=BSL-1.0-1-ov-file#">Boost Software License 1.0</a>. Additional awesome tools and code projects can be found on the author's website at [kpoovakan.github.io](https://kpoovakan.github.io).
