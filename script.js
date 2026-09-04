@@ -274,11 +274,12 @@ function calendarAddEvent() {
         console.log("level 1");
     }
     var thisGroup = calendarData[monthIndex];
-    var checkLength = Object.keys(calendarData[monthIndex]).length;
-    if(thisGroup == null || thisGroup == undefined || checkLength == 0) {
+    if(thisGroup == null || thisGroup == undefined) {
         var thisData = new Object({});
         calendarData[monthIndex] = thisData;
         console.log("level 2");
+    } else {
+        var thisGroup = undefinedBugFix(thisGroup);
     }
     var thisDay = calendarData[monthIndex][date];
     if(thisDay == undefined || thisDay == null) {
@@ -351,4 +352,13 @@ function calendarDayNum(thisElement) {
     thisValue = Number(thisValue);
     window.localStorage.setItem("stickytabCalendarIncludeDayNum", thisValue);
     location.reload();
+}
+
+function undefinedBugFix(data) {
+    let toReturn = JSON.stringify(data);
+    toReturn = toReturn.trim();
+    //console.log(toReturn);
+    toReturn = JSON.parse(toReturn);
+    //console.log(toReturn);
+    return toReturn;
 }

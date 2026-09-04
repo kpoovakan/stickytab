@@ -142,18 +142,21 @@ async function getCalendarData() {
     }
     globalThis.calendarData = await JSON.parse(calendarData);
     let dataItems = Object.keys(globalThis.calendarData).length;
-    if(dataItems > 2) {
+    //if(dataItems > 2) {
         var monthThis = d.getMonth();
         var monthNext = monthThis + 1;
+        var monthThis = String(monthThis);
+        var monthNext = String(monthNext);
         for (let i = 0; i < dataItems; i++) {
-            var thisItem = Object.keys(globalThis.calendarData)[i];
+            var thisItem = Object.keys(globalThis.calendarData);
+            var thisItem = thisItem[i];
             if(!(thisItem == monthThis || thisItem == monthNext)) {
                 let entries = Object.entries(globalThis.calendarData);
                 entries.splice(i, 1);
                 globalThis.calendarData = Object.fromEntries(entries);
             }
         }
-    }
+    //}
     console.log(globalThis.calendarData);
     setCalendarData(globalThis.calendarData);
     //first month
@@ -187,8 +190,16 @@ function setCalendarData(data) {
 
 function pushToCalendar(monthIndex, setupIndex, includeDayNum) {
     var dataCurrent = globalThis.calendarData[monthIndex];
-    //console.log(dataCurrent);
-    let rotisserie = Object.keys(dataCurrent).length;
+    if(dataCurrent == undefined || dataCurrent == null) {
+        console.log(dataCurrent + " undefined or null");
+        return;
+    }
+    let dataLength = Object.keys(dataCurrent).length;
+    if(dataLength == 0) {
+        return;
+    }
+    var dataCurrent = undefinedBugFix(dataCurrent);
+    let rotisserie = Object.entries(dataCurrent).length;
     for (let i = 0; i < rotisserie; i++) {
         let thisKey = Object.keys(dataCurrent)[i];
         var thisValue = dataCurrent[thisKey];
@@ -211,4 +222,20 @@ function pushToCalendar(monthIndex, setupIndex, includeDayNum) {
         var thisContent = thisContent + "<p class='calendarDayInfoScroll calendarDayInfo"+setupIndex+"'>" + thisValue + "</p>";
         document.getElementById("month"+setupIndex+"day"+thisKey).innerHTML = thisContent;
     }
+}
+
+function deleteKey(key, data) {
+    let dataModified = Object.entries(data);
+    dataModified.splice(key, 1);
+    dataModified = Object.fromEntries(dataModified);
+    return dataModified;
+}
+
+function undefinedBugFix(data) {
+    let toReturn = JSON.stringify(data);
+    toReturn = toReturn.trim();
+    //console.log(toReturn);
+    toReturn = JSON.parse(toReturn);
+    //console.log(toReturn);
+    return toReturn;
 }
