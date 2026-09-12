@@ -1,6 +1,7 @@
 "use strict";
 let arrayDays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 let arrayMonths = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+setInterval(getTime, 1000);
 
 window.onload = function() {
     globalThis.searchEngine = localStorage.getItem("stickytabEngine");
