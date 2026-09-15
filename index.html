@@ -63,7 +63,7 @@
         </dialog>
         <dialog id="settings">
             <div style="display: inline; font-size: 2vw;">
-                <p>time format: 
+                <p style="margin-top: 0;">time format: 
                     <select class="settingsSelect" width="auto" onchange="setTimeFormat(this)">
                         <option value="onload" disabled selected hidden>pick new time format</option>
                         <option value="12">12 HOUR</option>
@@ -97,6 +97,15 @@
                         <option value="1">true</option>
                     </select>
                 // this is a setting for including the date as a number on days that have events. it looks better but decreases readability.</p>
+                <!--<p>export or import Stickytab data:<span id="stickysave"></span><br>
+                    <button class="settingsButton" onclick="stickyDownload()">download stickies</button>
+                    <button class="settingsButton" onclick="calendarDownload()">download calendar data</button>
+                    <button class="settingsButton" onclick="preferencesDownload()">download preferences</button>
+                    <br>
+                    <button class="settingsButton" onclick="stickyUpload()">upload stickies</button>
+                    <button class="settingsButton" onclick="calendarUpload()">upload calendar data</button>
+                    <button class="settingsButton" onclick="preferencesUpload()">upload preferences</button>-->
+                </p>
             </div>
             <button class="closeDialog" onclick="closeSettingsEditor()">save changes and close</button>
         </dialog>

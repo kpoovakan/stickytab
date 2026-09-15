@@ -634,6 +634,8 @@ the animation is not actually used. */
     border: 3px solid var(--colorBackground);
     border-radius: 3px;
     font-family: "Oregano", cursive;
+    margin: 3px;
+    margin-left: 0;
 }
 
 .settingsButton:hover {

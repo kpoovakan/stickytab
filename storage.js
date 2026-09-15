@@ -142,7 +142,7 @@ function editSitesList() {
     document.getElementById("editSitesList").innerHTML = editSitesListView;
 }
 
-// the following code is probably for saving and loading storage
+// the following code is probably old code for saving and loading storage
 // the functions are for testing purposes only and are never actually called anywhere in the scripts
 
 function getStorage() {
@@ -194,4 +194,18 @@ function setStorage(query) {
     window.localStorage.setItem("stickytabEngine", storageEngine);
     window.localStorage.setItem("stickytabSites", storageSites);
     window.localStorage.setItem("stickytabTime", storageTime);
+}
+
+// the following code manages the export and import of Stickytab data
+
+function stickyDownload() {
+    document.getElementById("stickysave").innerHTML = `
+        <iframe src="components/stickysave.html?type=download" loading="eager" width="0" height="0" style="display: none;"></iframe>
+    `;
+}
+
+function stickyUpload() {
+    document.getElementById("stickysave").innerHTML = `
+        <iframe src="components/stickysave.html?type=upload" loading="eager" width="480px" height="180px" style="border: none; outline: none; float: right;"></iframe>
+    `;
 }
